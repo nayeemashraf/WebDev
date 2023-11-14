@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-rows: auto auto;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: minmax(200px 1fr) 1fr minmax(300px 1fr) minmax(100px 50%);
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            justify-content: start;
+            justify-content: center;
+            justify-content: end;
+            justify-content: space-between;
+            justify-content: space-around;
+            justify-content: space-evenly;
+            align-content: start;
+            align-content: center;
+            align-content: end;
+            align-content: space-between;
+            align-content: space-around;
+            align-content: space-evenly;
+
+            place-content: center;
+            /* place-content is shorthand for setting both align-content and justify-content properties respectively. */
+            gap: 10px;
+
+            justify-items: start;
+            /* justify-items and align-items aligns items with the respect to their grid cell. Other values: end - center - stretch (default)*/
+
+            align-items: start;
+            /* Other values: end - center - baseline - stretch (default) */
+
+            place-items: center;
+            /* place-items is shorthand for setting both align-items and justify-items properties respectively. */
+
+            /* grid-auto-rows and grid-auto-columns is used to specify the size of the implicitly created rows or columns. Example if we have 3 items and we specify only 2 grid row cells: grid-template-rows: 1fr 1fr; third row cell will be implicitly created and will the get same size of 1fr but with this property we can change the size of that item cell */
+            grid-auto-rows: auto;
+            grid-auto-columns: auto;
+            grid-auto-flow: row;
+            grid-row: 2 / 3;
+            grid-column: 3 / 4;
+            grid-area: 2 / 2 / 3 / 3;
+            grid-template-areas: 'header header header header header header'
+                'menu main main main aside aside'
+                'menu footer footer footer footer footer';
+        }
+
+        .items {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .item1 {
+            grid-area: header;
+            align-self: center;
+            justify-self: end;
+        }
+
+        .item2 {
+            grid-area: menu;
+        }
+
+        .item3 {
+            grid-area: main;
+        }
+
+        .item4 {
+            grid-area: aside;
+        }
+
+        .item5 {
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Grid: All direct children of the grid container automatically become grid items.</h1>
+    <p>The spaces between each column/row are called gaps. Grid gaps are only created in between columns and rows, and
+        not along the edge of the grid container</p>
+    <p>The justify-content property is used to align the whole grid inside the container. <em>The grid's total width has
+            to be less than the container's width for the justify-content property to have any effect.</em></p>
+    <p>The align-content property is used to vertically align the whole grid inside the container. <em>The grid's total
+            height has to be less than the container's height for the align-content property to have any effect.</em>
+    <p>When the height of grid items is not set, by default the height will be determined by the content within the
+        item.However, if any item in a row or column has content that is taller than the items around it, all the items
+        in that row
+        or column will match the height of the tallest item. This ensures that all the items in a row or column have the
+        same
+        height, even if their content is shorter.</p>
+    <p>minmax function is used to provide the two sizes for consideration i.e., "minimum" it must be and "maximum" it
+        can be</p>
+    <p>Mostly we use single property for the alignment, which is grid-template-columns</p>
+    <div class="grid-container">
+        <header class="item1 items">Header</header>
+        <nav class="item2 items">Menu</nav>
+        <main class="item3 items">Main</main>
+        <aside class="item4 items">Aside</aside>
+        <footer class="item5 items">Footer</footer>
+    </div>
+</body>
+</html>

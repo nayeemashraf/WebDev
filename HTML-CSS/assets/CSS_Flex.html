@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-box Property</title>
+    <style>
+        * {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 600px;
+            width: 100%;
+            border: 2px solid black;
+            background-color: dodgerblue;
+            display: flex;
+            flex-direction: row;
+            /* It changes the direction of flex items in the row, i.e, horizontally. This is the default value */
+            flex-direction: column;
+            /* It changes the direction of flex items in a column, i.e, vertically.*/
+            flex-direction: row-reverse;
+            /* It changes the direction of flex items in a row but in reverse order.*/
+            flex-direction: column-reverse;
+            /* It changes the direction of flex items in a column but in reverse order.*/
+            flex-wrap: nowrap;
+            /* Flex items aren't wrapped in the next line if the container is resized. This is the default value. */
+            flex-wrap: wrap;
+            /* flex-wrap property is used to wrap/flow items from top to bottom onto multiple lines when the size of container is resized. */
+            flex-wrap: wrap-reverse;
+            /* wraps items from bottom to top onto multiple lines when the size of container is resized. */
+            flex-flow: row-reverse wrap;
+            /* Shorthand for flex-direction and flex-wrap properties. */
+            justify-content: flex-start;
+            /* justify-content is used for aligning the flex items in the main axis, i.e., horizontally in case of flex-direction is set as row. In case of column direction, items will be aligned vertically. flex-start aligns the items at the beginning of the container. The default value is flex-start. */
+            justify-content: center;
+            /* flex-items are centered in the container along the main axis. */
+            justify-content: flex-end;
+            /* Flex-items are moved to the end of the container along the main axis. */
+            justify-content: space-between;
+            /* Distributes the equal space between any two flex-items, but the first and the last item are positioned at the edges of the container, i.e., there is no space before the first item or after the last item along the main axis. */
+            justify-content: space-around;
+            /* Adjusts the same space between any two flex-items. However, the space before the first item and the space after the last item will be half of the space between any two flex-items along the main axis. */
+            justify-content: space-evenly;
+            /* Adjusts the equal amount of space between all flex-items, including the outer items along the main axis. */
+            align-items: flex-start;
+            /* align-items property is used to align items in the cross-axis, i.e, vertically in case of row direction. In case of column direction, items will be aligned along the main axis, i.e, horizontally. flex-start is the default value in align-items property. */
+            align-items: center;
+            /* center aligns the flex items in the middle of the container along the cross axis. */
+            align-items: flex-end;
+            /* Items are moved to the end of the parent container along the cross axis. */
+            align-items: stretch;
+            /* It stretches the flex-items vertically to fill the parent container when the height property isn't set. This is the default value. */
+            align-items: baseline;
+            /* It aligns items in such a way that their baseline is equally aligned. The baseline of text or image or any kind of content in the flex items is on the same line. */
+            /* justify-content: center;
+            align-items: center;
+            It aligns the flex items to the container's centre both vertically and horizontally. */
+            align-content: flex-start;
+            /* Modifies the behavior of the flex-wrap property. It is similar to align-items, but instead of aligning flex items, it aligns flex lines */
+            /* align-content: center; */
+            /* align-content: stretch; */
+            /* stretch is the default value. */
+            /* align-content: space-between; */
+            /* align-content: space-around; */
+        }
+
+        .flexitem {
+            background-color: tomato;
+            border: 2px solid rgb(0, 0, 0);
+            margin: 10px;
+            padding: 4px;
+        }
+
+        #item-01 {
+            order: 0;
+            /* The order property changes the order of flex items. Higher the order later it appears in the container. The Default value is 0. */
+            flex-grow: 2;
+            /* flex-grow property allows the flex item to grow relative to the rest of the flex-items when the container expands. Alternatively, it allows an item to occupy all available space in the direction of flex-items are laid out. The default value is 0. Negative values aren't allowed. */
+            flex-shrink: 0;
+            /* flex-shrink property allows the flex item to shrink relative to the rest of the flex-items when the container shrinks. The default value is 1. To stop an item from shrinking add 0 as shrink value.*/
+            flex-basis: 40px;
+            /* flex-basis property is used to set the initial length of an item before flex-grow and flex-shrink are taken into consideration. Alternatively, it controls width when the flex-direction is set to row or height when direction is set to column. */
+            align-self: flex-start;
+            /* align-self property is used for an individual item to adjust the vertical alignment in the same way as the align-items property is used except the usage of stretch and baseline properties. It overrides the default alignment set by the container's align-items property. */
+            flex: 0 1 auto;
+            /* flex is the shorthand property for flex-grow, flex-shrink, and flex-basis. 0 1 auto are the default values of these respectively.*/
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Flex is a display property which allows us to alter the elements within the parent container to make them
+        responsive.
+        We can adjust the direction, flow, alignment, size, order, etc of the flex items using this property. The direct
+        children of
+        the flex container are the flex items upon which all the changes are applied.</h1>
+    <h2>If our content flows horizontally, in
+        the row direction, that will be our main axis. However, if our content flows vertically, in a column direction,
+        that will
+        be our main axis, and the axis perpendicular to the main axis is called the cross axis.</h2>
+    <main>
+        <div class="container">
+            <div class="flexitem" id="item-01">Box 01</div>
+            <div class="flexitem" id="item-02">Box 02</div>
+            <div class="flexitem" id="item-03">Box 03</div>
+            <div class="flexitem" id="item-04">Box 04</div>
+            <div class="flexitem" id="item-05">Box 05</div>
+            <div class="flexitem" id="item-06">Box 06</div>
+            <div class="flexitem" id="item-07">Box 07</div>
+            <div class="flexitem" id="item-08">Box 08</div>
+            <div class="flexitem" id="item-09">Box 09</div>
+            <div class="flexitem" id="item-10">Box 10</div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

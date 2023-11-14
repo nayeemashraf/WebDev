@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elements</title>
+    <link rel="shortcut icon" href="pic_bulboff.gif" type="image/x-icon">
+    <!-- favicon is a small image/icon, displayed at the start of page title in the browser tab. First, we need to save our favicon image either in root directory or in the images folder in root directory. Next, add a link element of favicon attribute in the index.html file (i.e., home page) after title element. A common name for a favicon image is "favicon.ico". A favicon is a small image, so it should be a simple image with high contrast. -->
+</head>
+
+<body>
+    <h1>HTML Elements</h1>
+    <h3>iframe element</h3>
+    <!-- An html iframe is used to display a webpage within a webpage. iframe tag specifies an inline frame. An inline frame is used to embed another document within the current html document. By default, an iframe has a border around it. -->
+    <iframe src="Form.html" name="iframe" title="form" frameborder="0"></iframe>
+    <!-- Here src attribute is the path of document. title attribute is added for accessibility by screen readers. name attribute is added in case we want to link the iframe in a page. We can change the style property like border in css. -->
+    <p><a href="Form.html" target="iframe">I'm a linked iframe of html forms</a></p>
+    <!-- Here it is a linked iframe. target attribute should be same as name attribute included in main iframe. -->
+    <h3>pre element<h3>
+            <!-- <pre> element is used for preformatted text. The text inside a pre element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks. -->
+            <pre>I am a preformatted t e x t embedded in
+                a pre
+                element. You can see I can manage spaces and line breaks
+                on my own.
+            </pre>
+            <h3>blockquote element.
+                <h3>
+                    <blockquote cite="https://www.worldwildlife.org/who/index.html">For 50 years, WWF has been
+                        protecting the
+                        future
+                        of nature. The world's leading conservation organization, WWF works in 100 countries and is
+                        supported by
+                        1.2
+                        million members in the United States and close to 5 million globally.</blockquote>
+                    <!-- The html <blockquote> element defines a section that is quoted from another source. cite attribute is added separately for citing source path. Browsers usually indent(add space at starting) blockquote elements. -->
+                    <ins>I am inserted element.</ins>
+                    <!-- <ins> element defines a text that has been inserted or added later into a document. Browsers will usually underline inserted text. -->
+                    <h3>abbr element
+                        <h3>
+                            <!-- The html <abbr> tag defines an abbreviation or an acronym, like HTML, CSS, ASAP, WHO, etc. Marking abbreviations can give useful information to browsers, translation systems and search-engines. -->
+                            <p>The <abbr title="World Health organization">WHO</abbr> was
+                                founded in 1948.</p>
+                            <!-- We must add description for the abbreviation/acronym in title attribute to show it when we mouse over the element. -->
+                            <h3>address element.
+                                <h3>
+                                    <!-- The html <address> tag defines the contact information for the author/owner of a document or an article. -->
+                                    <address>Author William. <br>
+                                        Visit us at: www.example.com <br>
+                                        Bonn 535, Munich <br>
+                                        Germany
+                                    </address>
+                                    <!-- The contact information can be an email address, URL, physical address, phone number, social media handle, etc. The text in the <address> element usually renders in italic, and browsers will always add a line break before and after the <address> element. -->
+                                    <h3>cite element.</h3>
+                                    <!-- The html <cite> tag defines the title of a creative work e.g., a book, a poem, a song, a movie, a painting, a sculpture, etc. -->
+                                    <p><cite>HTML & CSS: Design and Build Web Sites</cite>Jon Duckett</p>
+                                    <!-- The text in the <cite> element usually renders in italic. A person's name is not the title of a work. -->
+</body>
+
+</html>

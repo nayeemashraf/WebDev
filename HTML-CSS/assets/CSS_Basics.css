@@ -1,0 +1,262 @@
+/* 
+CSS stands for Cascading Style Sheets. CSS describes how HTML elements are to be displayed on screen,
+paper, or in other media. It can control the layout of multiple web pages all at once. External stylesheets are stored in a .css extension. CSS is used to define styles for our web pages, including the design, layout and variations in display for different devices and screen sizes.
+
+CSS rule consists of a selector and a declaration block:
+The selector points to the html element we want to style. They are used to access the html element that we want to style.
+The declaration block contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon.
+Multiple CSS declarations are separated with semicolons, and declaration blocks are surrounded by curly braces. */
+p {
+    color: cadetblue;
+    font-size: 24px;
+}
+
+/* In the example above, "p" element is the selector. 'color' is a property, and 'cadetblue' is the property value. Similarly, 'font-size' is another property and its value '24px', where 'px' is the pixel unit. This will set the text color of the paragraph element to 'cadetblue' with the font-size of 24px. */
+
+/*💡 Grouping Selector
+The grouping selector selects all the HTML elements with the same style definitions. Grouping selectors will minimize the code. To group selectors separate each selector with a comma. 
+*/
+p,
+h1,
+a,
+img,
+ul,
+li,
+div,
+span {
+    background-color: teal;
+    font-weight: lighter;
+}
+
+/*💡 Margin and Padding:
+Margin is used to create space around elements, outside of any defined borders. Or it is the space between any defined border of an element and other element.
+
+Padding is used to create space around an element's content, inside of any defined borders. Or the space from the content and border of that element. The padding is transparent.
+*/
+element {
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    margin: auto;
+    /* Note: margin auto will center the element horizontally within its container. */
+}
+
+/*💡 Margin Collapse 
+Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins. This does not happen on left and right margins! Only top and bottom margins !
+
+In the example below, the <h1> element has a bottom margin of 50px and the <h2> element has a top margin set to 20px.
+Common sense would seem to suggest that the vertical margin between the <h1> and the <h2> would be a total of 70px (50px + 20px). But due to margin collapse, the actual margin ends up being 50px.
+*/
+h1 {
+    margin: 0 0 50px 0;
+}
+
+h2 {
+    margin: 20px 0 0 0;
+}
+
+/*💡 width:
+Width property specifies the width of the element's content area i.e., space from any defined border and content itself.
+*/
+element {
+    width: 50%;
+    width: auto;
+    /* This is Default. Browser calculates the width on its own. */
+    width: fit-content;
+    width: max-content;
+    width: min-content;
+
+    /* min-width: The min-width property will ensure that an element is never narrower than the value you set, even if the browser window is too small to display the whole element. If the content is smaller than the minimum width, the minimum width will be applied. If the content is larger than the minimum width, the min-width property has no effect. */
+    min-width: auto;
+    min-width: fit-content;
+    min-width: max-content;
+    min-width: min-content;
+
+    /* If we use both the width and max-width property on the same element and if the value of the width is larger than the max-width property, max-width property will be used and width property will be ignored. */
+
+    /* max-width: The max-width property will ensure that an element is never wider than the value you set, even if there's enough room on the page for it to take up more space. If the content is larger than the maximum width, it will automatically change the height of the element. If the content is smaller than the maximum width, the max-width property has no effect. */
+    max-width: fit-content;
+    max-width: max-content;
+    max-width: min-content;
+    max-width: none;
+    /* This is Default. I.e., there is no maximum width. */
+}
+
+/*💡 Height
+Height property specifies the height of the element's content area i.e., space from any defined border and content itself. 
+*/
+element {
+    height: 50%;
+    height: auto;
+    /* This is Default. Browser calculates the height on its own. */
+    height: fit-content;
+    height: max-content;
+    height: min-content;
+
+    /* min-height: min-height property will ensure that an element is never shorter than the value you set, even if the browser window is too small to display the whole element. If the content is smaller than the minimum height, the minimum height will be applied. If the content is larger than the minimum height, the min-height property has no effect. */
+    min-height: auto;
+    /* This is Default. Browser calculates on its own. */
+    min-height: max-content;
+    min-height: min-content;
+
+    /* max-height: The max-height property will ensure that an element is never taller than the value you set, even if there's enough room on the page for it to take up more space. If the content is larger than the maximum height, it will overflow. How the container will handle the overflowing content is defined by the overflow property. If the content is smaller than the maximum height, the max-height property has no effect. */
+    max-height: fit-content;
+    max-height: max-content;
+    max-height: min-content;
+    max-height: none;
+    /* This is Default. Browser calculates on its own. */
+}
+
+/* NOTE: Both max-min-width and max-min-height properties override the width and height property. */
+
+/* 
+Note: The height and width properties do not include padding, borders, or margins! They set the height/width of the area inside the padding, border, and margin of the element.
+
+When you set the width and height properties of an element, you just set the width and height of the content area. To calculate the full size of an element, you must also add padding, borders and margins. Example, This <div> element will have a total width of 350px:
+*/
+div {
+    width: 320px;
+    padding: 10px;
+    border: 5px solid rgb(4, 170, 109);
+    margin: 0;
+}
+
+/*
+The total width of an element should be calculated like this: Total element width=width + left padding + right padding + left border + right border + left margin + right margin.
+Here is the calculation: 320px (width) 
+                        + 20px (left + right padding) 
+                        + 10px (left + right border) 
+                        + 0px (left + right margin)
+        Total width:    = 350px 
+
+Similarly, The total height of an element should be calculated like this: Total element height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin.
+*/
+
+/*💡 background-image, position and background-repeat:
+We can set the background image from local source or external resource.
+By default, a background-image is placed at the top-left corner of an element, and repeated both vertically and horizontally.
+We can use 'no-repeat' value to background-repeat property to stop the repeating of an image.
+*/
+element {
+    background-color: bisque;
+    background-image: url('pic_bulboff.gif');
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+/* ⚡ Always set background-repeat to no-repeat after setting the linear-gradient property on a element. Otherwise, it will start repeating gradient on small screen. */
+
+
+/*💡 background-position
+background-images can be positioned with respect to their parent element. If we only specify one keyword, the other value will be "center" by default */
+element {
+    background-position: right top;
+    background-position: right center;
+    background-position: right bottom;
+    background-position: left top;
+    background-position: left center;
+    background-position: left bottom;
+    background-position: center top;
+    background-position: center bottom;
+    background-position: center center;
+    /* Using percentages x% y%: The first value is the horizontal position and the second value is the vertical. The top left corner is 0% 0%. The right bottom corner is 100% 100%. If you only specify one value, the other value will be 50%. Default value is: 0% 0% */
+    background-position: 30% 40%;
+}
+
+
+/*💡 Background-size
+The background-size property specifies the size of the background images 
+example background-size: 100px 100px; Sets the width and height  */
+element {
+    background-size: auto;
+    /* The default keyword auto tells the browser to automatically calculate the size based on the actual size of the image and the aspect ratio. */
+    background-size: contain;
+    /* contain specifies to always show the whole image, even if that leaves a little space to the sides or bottom. */
+    background-size: cover;
+    /* cover tells the browser to make sure the image always covers the entire container, even if it has to stretch the image or cut a little bit off one of the edges.  */
+}
+
+/*
+💡 Units
+⚡ Use a Combination of percent and em. Set a default font-size in % for the body element and use em for headings and paragraphs.
+
+em 
+Relative to the parent element
+
+rem 
+Relative to the root element (HTML tag)
+
+vh 
+Relative to the viewport’s height
+
+vw 
+Relative to the viewport’s width
+
+px 
+Pixels (px) are considered absolute units
+
+percent %
+Relative to the parent element
+*/
+
+
+/*💡 overflow 
+The CSS overflow property controls what happens to content that is too big to fit into an area. The overflow property specifies whether to clip the content or to add scrollbars when the content of an element is too big to fit in the specified area.
+Note: The overflow property only works for block elements with a specified height.
+By default, the overflow is visible, meaning that it is not clipped and it renders outside the element's box:
+*/
+element {
+    overflow: visible;
+    /* Default, The overflow is not clipped. The content renders outside the element's box */
+    overflow: hidden;
+    /* The overflow is clipped, and the rest of the content will be invisible */
+    overflow: scroll;
+    /* The overflow is clipped, and a scrollbar is added to see the rest of the content */
+    overflow: auto;
+    /* Similar to scroll, but it adds scrollbars only when necessary */
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+    overflow-y: scroll;
+    /* Add vertical scrollbar */
+}
+
+/*💡 box-sizing
+box-sizing property allows us to include the padding and border in an element's total width and height.
+Without the CSS box-sizing Property: By default, the width and height of an element is calculated like this:
+
+width + padding + border = actual width of an element.
+
+height + padding + border = actual height of an element.
+To counter this, we use box-sizing on the universal selector, or html, or body element.
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*💡 scroll-behavior
+The scroll-behavior property specifies whether to smoothly animate the scroll position, instead of a straight jump, when the user clicks on a link within a scrollable box. 
+*/
+element {
+    scroll-behavior: auto;
+    /* default value. Allows a straight jump "scroll effect" between elements within the scrolling box. */
+    scroll-behavior: smooth;
+    /* Allows a smooth animated scroll effect between elements when toggled with jump. (using id as value to href in the html elements) */
+}
+
+
+/*💡 scroll-snap-type
+The scroll-snap-type specifies how the elements will snap into focus when you stop scrolling, and in what direction. To achieve scroll snap behaviour, the scroll-snap-type property must be set on the parent element,
+and the scroll-snap-align property must be set on the child elements. */
+element {
+    scroll-snap-type: x mandatory;
+    /* property used on container  */
+    scroll-snap-type: x proximity;
+    /* property used on container */
+    scroll-snap-align: center;
+    /* property used on child items. */
+}
+
+/* 
+⚡ To center the element in the body, provide some top-bottom margin and set the left-right margin to 'auto' and provide some max-width.
+*/

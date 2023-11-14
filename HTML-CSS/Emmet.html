@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Emmet</h1>
+
+  <!--⚡ Emmet HTML shortcuts -->
+  <!--💡 To create the same element multiple times type the element name followed by asterisk symbol (*) with numeric value. E.g p*2 will produce 2 <p> elements. -->
+  <p>First paragraph element</p>
+  <p>Second paragraph element</p>
+
+  <!--💡 When we don't specify the tag name, Emmet takes div as default. -->
+
+  <!--💡 .hello will create a <div> element with "hello" as class name. -->
+  <div class="hello"></div>
+
+  <!--💡 .hero..main will create a <div> element with multiple classes. -->
+  <div class="hero main"></div>
+
+  <!--💡 #one will create <div> element with "one" as id. -->
+  <div id="one"></div>
+
+  <!--💡 p#idPara will create <p> element with "idPara" as id. -->
+  <p id="idPara"></p>
+
+  <!--💡 .classic#identifier will create <div> element with "classic" as class and "identifier" as "id". -->
+  <div class="classic" id="identifier"></div>
+
+  <!--💡 #single.sect will create <div> element with "single" as id and "sect" as class. -->
+  <div id="single" class="sect"></div>
+
+  <!--💡 .className#idName*3 will create three <div> elements with class "className" and "idName" as id. -->
+  <div class="className" id="idName"></div>
+  <div class="className" id="idName"></div>
+  <div class="className" id="idName"></div>
+
+  <!--💡 #container$*2 will create 2 <div> elements, attached with number in sequence with container1 and container2 as ids respectively. -->
+  <div id="container1"></div>
+  <div id="container2"></div>
+
+  <!--💡 inp#user.info*2 will create 2 input elements with "user" and "info" as id and class respectively. -->
+  <input type="text" name="" id="user" class="info" />
+  <input type="text" name="" id="user" class="info" />
+
+  <!--💡 input:typename then Enter/Tab creates any input type element. syntax: input:btn  -->
+  <input type="button" value="" />
+
+  <!--💡 colon can be used with tags to create elements with that type. syntax: a:link and link:favicon  -->
+  <a href="http://www.example.com"></a>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+  <!--💡 To create child/nested tags use > with the element. syntax: ul>li -->
+  <ul>
+    <li></li>
+  </ul>
+
+  <!--💡 We can also combine this with class or id. syntax: .flex-parent>.flex-child -->
+  <div class="flex-parent">
+    <div class="flex-child"></div>
+  </div>
+
+  <!--💡 creating nested elements with 2 classes and an id. syntax: .first..second#main>.secondary#unique>.third#identifier-->
+  <div class="first second" id="main">
+    <div class="secondary" id="unique">
+      <div class="third" id="identifier"></div>
+    </div>
+  </div>
+
+  <!--💡 We can create sibling tags meaning tags on same level using + operator. Use this method in case we want to create different child elements with different classes. syntax: main.parent>section.sec+aside.classy#gallery -->
+  <main class="parent">
+    <section class="sec"></section>
+    <aside class="classy" id="gallery"></aside>
+  </main>
+
+  <!--💡 When we want to use the same child element with same class, use this method. Tags with same class using asterisk symbol *. syntax: .flex-parent>.flex-child*2 -->
+  <div class="flex-parent">
+    <div class="flex-child"></div>
+    <div class="flex-child"></div>
+  </div>
+
+  <!--💡 More examples of sibling tags. Syntax: ul>li*3 -->
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <!--💡 Adding lorem dummy text with tags. syntax: p>lorem10  -->
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nisi!</p>
+
+  <!--💡 Using parentheses to create groupings of generated tags. syntax: (p>lorem10)*3 -->
+  <p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis, veniam!
+  </p>
+  <p>
+    Pariatur officiis, similique dolores odio harum est doloribus hic rerum?
+  </p>
+  <p>
+    Aut iste delectus voluptas? Quam molestias laborum ipsum corporis commodi.
+  </p>
+
+  <!--💡 More examples: groupings of generated tags using parentheses syntax: (.see>ul)*3 -->
+  <div class="see">
+    <ul></ul>
+  </div>
+  <div class="see">
+    <ul></ul>
+  </div>
+  <div class="see">
+    <ul></ul>
+  </div>
+
+  <!--💡 Creating a table with emmet shorthand. Syntax: table>(thead>tr>th*3)+tbody>tr*2>td*3 -->
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A rem nisi omnis molestias rerum beatae atque sit dicta
+  suscipit qui, minima doloremque voluptatum dolorum labore earum alias nesciunt accusantium. Nemo. Lorem ipsum, dolor
+  sit amet consectetur adipisicing elit. Corrupti tempora veniam voluptatibus! Esse nostrum tenetur, inventore obcaecati
+  at nesciunt reiciendis sunt distinctio animi numquam aperiam, exercitationem quisquam reprehenderit? Quis, esse! Lorem
+  ipsum dolor sit amet consectetur.
+
+  <p>Matching Pair</p>
+  <!--💡 Find the opening or closing tag of any element by typing the 'matching pair' in the command palette after placing the cursor inside one of the tags or at the start/end of a tag. -->
+
+  <p>Wrap an element or elements with the desired element</p>
+  <!--💡 Select the element/s which you want to wrap within another element and then hit command palette and type 'wrap abbreviation' and then write the element name. You can also add attributes for that element from there. -->
+
+</body>
+
+</html>

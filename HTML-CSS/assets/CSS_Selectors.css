@@ -1,0 +1,339 @@
+/*
+💡 CSS Selectors
+CSS selectors are used to "find"(or select) the HTML elements that we want to style.
+We can use different selectors to select and add different css properties to an element.
+
+CSS selectors can be categorized mainly into eight categories: 
+1. Element Selectors 
+2. Grouping Selectors
+3. id and class selectors
+4. Universal selector
+5. Combinator selectors
+6. Pseudo-class selectors
+7. Pseudo-elements selectors
+8. Attribute selectors
+
+1. Element Selectors/simple selectors: Select elements based on their names.
+E.g., h1, p, img, a, ul, li, div, span,... etc 
+
+2. Grouping Selector: The grouping selector selects all the HTML elements with the same style definitions. Grouping selectors will minimize the code. To group selectors, separate each selector with a comma. */
+p,
+h1,
+a,
+img,
+ul,
+li,
+div,
+span {
+    background-color: teal;
+    font-weight: lighter;
+}
+
+/* 
+💡 3. ID and Class Attribute Selectors: Select elements based on id or class attribute. To call elements with unique id or specific class attribute type # followed by id name or . followed by class name respectively.
+*/
+#nav {
+    color: black;
+}
+
+.figure {
+    font-size: 24px;
+}
+
+/* 
+💡 4. Universal selector: * (asterisk) is the universal selector to select and apply the style to all html elements on the page. 
+*/
+* {
+    color: white;
+    font-size: 10px;
+}
+
+
+/* 
+💡 5. Combinators: Select elements based on a specific relationship between them. They are subdivided into four categories:
+a) Descendant Selector: Selects all elements that are descendants of a particular element,
+no matter how deep they are in. In the below e.g, all the p elements will get the property value except the last one because that is outside of the div element. 
+*/
+
+div p {
+    text-align: center;
+}
+
+/* 
+<div class="container">
+        <div class="row">
+        <ul>
+            <li class="item"> <p> This is a paragraph inside li</p> </li> 
+        </ul> 
+        <p> This is a paragraph</p> 
+        </div> 
+        <p> This is another paragraph</p> 
+</div> 
+    <p> This is the last paragraph</p>  
+*/
+
+/* 
+b) Child Selector (>): Selects all elements that are the direct children of a specified element.
+In the below example only paragraph 1, 2 and 4 will get the property. 
+*/
+
+div > p {
+    background-color: yellow;
+}
+
+/* 
+<div> 
+   <p> Paragraph 1 in the div.</p> 
+   <p> Paragraph 2 in the div.</p> 
+   <section> 
+      <p> Paragraph 3 in the div (inside a section element. Not Child but Descendant).</p> 
+    </section> 
+   <p> Paragraph 4 in the div.</p> 
+</div> 
+   <p> Paragraph 5. Not in a div.</p> 
+   <p> Paragraph 6. Not in a div.</p> 
+*/
+
+
+/* 
+c) Adjacent Sibling Selector(+): Selects the adjacent element that is immediately following i.e, first one of its kind, if there are more than one same kind of elements consecutively, only the first one will get the property. Sibling elements must have the same parent element.
+In the below example Paragraph 3, 7 and 9 will get the property because paragraph 3 and 7 share the same parent i.e., div while paragraph 9 and main div are siblings and share same parent i.e., body element. 
+*/
+
+div + p {
+    background-color: yellow;
+}
+
+/* 
+<h3> The + selector is used to select an element that is directly after another specific element.</h3> 
+<body>
+    <div>
+        <div> 
+            <p> Paragraph 1 in the div.</p> 
+            <p> Paragraph 2 in the div.</p> 
+        </div> 
+        <p> Paragraph 3. After a div.</p> 
+        <p> Paragraph 4. After a div.</p> 
+        <div> 
+            <p> Paragraph 5 in the div.</p> 
+            <p> Paragraph 6 in the div.</p> 
+        </div> 
+        <p> Paragraph 7. After a div.</p> 
+        <p> Paragraph 8. After a div.</p>
+    </div>
+    <p> Paragraph 9. After a div.</p>
+    <p> Paragraph 10. After a div.</p>
+</body> 
+*/
+
+/* 
+d) General Sibling Selector (~): It behaves like adjacent sibling selector but it selects all the elements in the flow rather than only the first one and the target element doesn't have to be followed immediately.
+In the below e.g., Paragraph 3, 4, 5, and 6 will get the property. 
+*/
+
+div ~ p {
+    background-color: yellow;
+}
+
+/* 
+<div>
+    <p>Paragraph 1.</p> 
+    <div> 
+    <p>Paragraph 2.</p> 
+    </div> 
+    <p>Paragraph 3.</p> 
+    <section>Some code.</section> 
+    <p>Paragraph 4.</p>
+    <aside> Aside Text.</aside>  
+    <p>Paragraph 5.</p> 
+    <p>Paragraph 6.</p>
+</div> 
+*/
+
+
+/*
+💡 6. CSS Pseudo-Classes: A pseudo-class is used to define a special state of an element. For example, it can be used to: Style an element when a user mouses over it, Style visited and unvisited links differently, Style an element when it gets focus. 
+*/
+
+/* 
+Anchor Pseudo-Classes: The four link states are:
+a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked 
+*/
+
+/* 
+Order --
+
+a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective! 
+a:active MUST come after a:hover in the CSS definition in order to be effective! Pseudo-class names are not case-sensitive.
+Pseudo-classes can be combined with HTML elements, class as well as id:
+div:hover
+a.highlight:hover
+#navbar:hover 
+*/
+
+/* 
+first-child Pseudo-class: The :first-child pseudo-class matches the first child element among a group of sibling elements. 
+*/
+p:first-child {
+    color: blue;
+}
+
+/* 
+In the example below only 'item 1' and 'item 3.1' will get the red color property. 
+*/
+
+ul li {
+    color: blue;
+}
+
+ul li:first-child {
+    color: red;
+}
+
+/* 
+<ul> 
+    <li> Item 1</li> 
+    <li> Item 2</li> 
+    <li> 
+      Item 3 
+      <ul> 
+        <li> Item 3.1</li> 
+        <li> Item 3.2</li> 
+        <li> Item 3.3</li>
+    </ul>
+  </li> 
+</ul> 
+*/
+
+/* 
+Pseudo-classes can be combined with HTML classes: 
+*/
+p i:first-child {
+    color: blue;
+}
+
+p:first-child i {
+    color: blue;
+}
+
+/* 
+last-child Pseudo-class: 
+
+only-child Pseudo-class: 
+
+nth-child(n) Pseudo-class:  
+*/
+
+
+/*
+💡 7. CSS Pseudo-element: Selects and style a part of an element.
+
+::first-line: 
+
+::first-letter: 
+
+Pseudo-elements and Html classes: 
+
+Multiple Pseudo-elements: 
+
+::before Pseudo-element: 
+
+::after Pseudo-element: 
+
+::marker Pseudo-element: 
+*/
+
+
+/* 
+💡 8. Attribute Selectors: Select elements based on an attribute or attribute value.
+
+a) Normal [attribute] selector: The [attribute] selector is used to select elements with a specified attribute. 
+*/
+a[target] {
+    background-color: yellow;
+}
+
+/* 
+The above example selects all <a> elements with a target attribute. 
+*/
+
+/* 
+b) CSS [attribute="value"] Selector: The [attribute="value"] selector is used to select elements with a specified attribute and value. The following example selects all <a> elements with a target="_blank" attribute: 
+*/
+a[target="_blank"] {
+    background-color: yellow;
+}
+
+/* 
+c) CSS [attribute ~="value"] Selector: The [attribute ~="value"] selector is used to select elements with an attribute value containing a specified word. The following example selects all elements with a title attribute that contains a space-separated list of words, one of which is "flower":  
+*/
+[title ~="flower"] {
+    border: 5px solid yellow;
+}
+
+/* 
+The example above will match elements with
+title="flower"
+title="summer flower",
+and title="flower garden",
+but not title="rose-flower" or title="flowers" or title="niceflower"
+*/
+
+/* 
+d) CSS [attribute|="value"] Selector: The [attribute|="value"] selector is used to select elements with the specified attribute,
+whose value can be exactly the specified value,
+or the specified value followed by a hyphen (-). 
+Note: The value has to be a whole word,
+either alone,
+like class="top",
+or followed by a hyphen(-),
+like class="top-text" 
+*/
+
+[class|="top"] {
+    background: yellow;
+}
+
+/*
+e) CSS [attribute^="value"] Selector: The [attribute^="value"] selector is used to select elements with the specified attribute,
+whose value starts with the specified value. The following example selects all elements with a class attribute value that starts with "top": Note: The value does not have to be a whole word.  
+*/
+
+[class^="top"] {
+    background: yellow;
+}
+
+/* 
+f) CSS [attribute$="value"] Selector: The [attribute$="value"] selector is used to select elements whose attribute value ends with a specified value. The following example selects all elements with a class attribute value that ends with "test": Note: The value does not have to be a whole word. 
+*/
+
+[class$="test"] {
+    background: yellow;
+}
+
+/* 
+g) CSS [attribute*="value"] Selector: The [attribute*="value"] selector is used to select elements whose attribute value contains a specified value. The following example selects all elements with a class attribute value that contains "te": Note: The value does not have to be a whole word. 
+*/
+[class*="te"] {
+    background: yellow;
+}
+
+/* 
+The attribute selectors can be useful for styling forms without class or ID: 
+
+*/
+input[type="text"] {
+    width: 150px;
+    display: block;
+    margin-bottom: 10px;
+    background-color: yellow;
+}
+
+input[type="button"] {
+    width: 120px;
+    margin-left: 35px;
+    display: block;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Semantics</title>
+</head>
+
+<body>
+  <h1>
+    HTML Semantics are self-defining tags which notifies both the browser and
+    the developer what the content is about. Examples of non-semantic elements: <code> &lt;div&gt; </code> and <code>
+      &lt;span&gt; </code> - Tells nothing about its content.
+  </h1>
+  <header>
+    I am the header of the page.
+    <nav>I am the nav tag inside the header.</nav>
+  </header>
+  <main>
+    I am the main tag.
+    <article>I am an article tag.</article>
+    <section>I am the section tag.</section>
+    <article>
+      I am also an article tag containing the section tag.
+      <section>I am the section tag inside the article tag.</section>
+    </article>
+    <section>
+      I am the section tag containing article tags.
+      <article>I am an article tag inside section</article>
+      <article>I am also an article tag inside section</article>
+    </section>
+    <aside>I am an aside tag. I can be an ad or a related content.</aside>
+    <section>
+      <aside>I am an aside tag inside the section tag.</aside>
+    </section>
+    <figure>
+      The figure tag specifies self-contained content, like illustrations,
+      diagrams, photos, code listings, etc.
+      <br />
+      <img src="pic_bulboff.gif" alt="" />
+      <figcaption>Picture of a bulb.</figcaption>
+      <img src="pic_bulboff.gif" alt="" />
+      <img src="pic_bulboff.gif" alt="" />
+      <img src="pic_bulboff.gif" alt="" />
+      <img src="pic_bulboff.gif" alt="" />
+      <img src="pic_bulboff.gif" alt="" />
+      <figcaption>
+        The figcaption tag defines a caption for a figure element. The
+        figcaption element can be placed as the first or as the last child of
+        a figure element.
+      </figcaption>
+    </figure>
+    <section>
+      <form>
+        <fieldset>
+          <!-- The fieldset element is used to group related data in a form element. -->
+          <legend>
+            Personal Information
+            <!-- Legend Element defines a Caption for the fieldset</legend> -->
+          </legend>
+          <label for="">First Name:</label>
+          <input type="text" name="firstName" id="">
+          <label for="">Last Name:</label>
+          <input type="text" name="lastName" id="">
+          <br><br>
+          <label for="">Sex:</label>
+          <input type="radio" name="sex" value="male" id="male">
+          <label for="male">Male</label>
+          <input type="radio" name="sex" value="female" id="female">
+          <label for="female">Female</label>
+          <input type="radio" name="sex" value="other" id="other">
+          <label for="other">Other</label>
+          <label for="question">Security question:</label>
+          <br><br>
+          <input type="submit" value="Submit">
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <footer>I am the footer of the page.</footer>
+</body>
+
+</html>

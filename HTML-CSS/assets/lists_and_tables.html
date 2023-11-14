@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists and Tables</title>
+</head>
+
+<body>
+    <h3>List types and their attributes.</h3>
+    <!-- Lists are of three types i.e., ordered lists (ol) and unordered lists (ul) and description list (dl). All the three lists have more than one attribute which can be accessed by type attribute. -->
+    <ul type="circle">
+        <li>This is the first item of unordered list</li>
+        <li>This is the second item of unordered list</li>
+        <li>This is the third item of unordered list</li>
+    </ul>
+    <h4>This is an ordered list of "A" numbering attribute.</h4>
+    <ol type="A">
+        <li>This is the first item of ordered list</li>
+        <li>This is the second item of ordered list</li>
+        <li>This is the third item of ordered list</li>
+    </ol>
+    <dl>
+        <!-- dl stands for description list, with terms and description of items.  -->
+        <dt>HTML:</dt>
+        <!-- dt element represents the term or name in a description list. -->
+        <dd>Hypertext markup language is used to create web pages that is rendered by a web
+            browser.</dd>
+        <!-- dd element represents the description, definition, or value of the term in dt element. -->
+    </dl>
+    <ul type="disc">
+        <li>This is the first item of list.</li>
+        <li>This is the second item of list.</li>
+        <!-- HTML also allows the nesting. It simply means we can add a list into another list. -->
+        <ul type="square">
+            <li>we are nested.</li>
+            <li>we are nested.</li>
+            <li>we are nested.</li>
+        </ul>
+        <li>This is the third item of list.</li>
+    </ul>
+    <h4>This is a Table.</h4>
+    <!-- <table> element is used to embed tables. <table> element consists of <thead> and <tbody>. Where <thead> is the table head and <tbody> is the body. <tr> is the table row and <th> is the table header. <td> represents the data in a table cell-->
+    <table>
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bob</td>
+                <td>Manager</td>
+                <td>5333$</td>
+                <td>US</td>
+            </tr>
+            <tr>
+                <td>Ashley</td>
+                <td>HR</td>
+                <td>5000$</td>
+                <td>Australia</td>
+            </tr>
+            <tr>
+                <td>Edwards</td>
+                <td>Marketing Executive</td>
+                <td>5532$</td>
+                <td>Canada</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

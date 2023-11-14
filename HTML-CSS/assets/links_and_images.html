@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Links and Images</title>
+</head>
+
+<body>
+  <h1>Links and images.</h1>
+  <!-- html links are hyperlinks. A link does not have to be text. A link can be an image or any other html document. By default, an unvisited link is underlined and blue. A visited link is also underlined but in purple color.  -->
+  <a href="https://www.google.com">Go to Google</a>
+  <!-- We use anchor <a> tag for adding links. The link's destination is specified in the href attribute, where href means hypertext reference. Here, "Go to Google" is the keyword for user to click for redirecting to the linked website -->
+  <a href="https://www.facebook.com">Go to Facebook</a>
+  <a href="https://www.twitter.com">Go to Twitter</a>
+  <br>
+  <!-- we will break the links in lines -->
+  <a href="https://www.facebook.com" target="_blank">Go to Facebook</a><br>
+  <a href="https://www.google.com" target="_blank">Go to Google</a><br>
+  <a href="https://www.twitter.com" target="_blank">Go to Twitter</a><br>
+  <!-- For opening the link in a new tab target attribute is used with "_blank" its value. Target attribute specifies where to open the linked document. -->
+  <a href="inline_block_and_inline-block_elements.html" target="_blank">Go to previous section.</a><br><br>
+  <!-- Through this anchor tag, we can also link internal webpages that are locally stored in our directory. We just have to use the address of the internal webpage including the file name with its extension. -->
+  <img src="pic_bulboff.gif" alt="Not available"><br><br>
+  <img src="https://source.unsplash.com/random" alt="Auto-generated random images from unsplash.com"><br><br>
+  <!-- <imag> tag is used to embed an image. Generally it has two basic attributes “src" and “alt". Here "src" is the source file that can be local as well as online in an external webpage and "alt" represents the alternative text of that image and will only appear if image is unable to load or not present. Also, img tag have width and height attributes but that part is mostly taken care off in CSS. -->
+  <p>Relative File Path</p>
+  <!--  
+    A relative file path points to a file relative to the current page or the current location within a website's directory structure. A relative file path does not include the full URL address.
+    If the path does not start with a slash ('/'), it is relative to the current page. For example: src="image.jpg" or "tutorial5.html".
+    If the path starts with a slash ('/'), it is relative to the root of the domain. For example: src="/images/image.jpg" or <a href="/tutorial5.html"></a>."
+    It is always best to use relative URLs. They will not break if we change domain. -->
+
+  <img src="image.jpg" alt="Not available">
+  <!-- Here image.jpg is located in the same folder as the current webpage. E.g, in our case it will be in the WEB_DEVELOPMENT folder. -->
+  <img src="images/image.jpg" alt="Not available">
+  <!-- Here image.jpg is located in the images folder within the current folder, relative to the current webpage. -->
+  <img src="/images/image.jpg" alt="Not available">
+  <!-- Here image.jpg file is located in the images folder at the root of the current webpage.  -->
+  <img src="../image.jpg" alt="Not available">
+  <!-- Here image.jpg file is located in the parent folder of the current webpage. -->
+  <p>Absolute File Path</p>
+  <!-- Alternatively called file path and full path, the absolute path contains the root directory and all other subdirectories where a file or folder is contained. For example, https://www.computerhope.com/jargon/a/absopath.htm is the absolute path of the URL (uniform resource locator) to this web page. 
+  The absolute file path of the current file is: E:\Web_Development\HTML__CSS\assets\links_and_images.html  
+  another example: <img src="https://www.source.unsplash.com/random" alt="random">    
+  -->
+  <p><a href="#C4">Jump to Chapter 4</a></p>
+  <p><a href="#C10">Jump to Chapter 10</a></p>
+  <h2>Chapter 1</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 2</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 3</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2 id="C4">Chapter 4</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 5</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 6</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 7</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 8</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 9</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2 id="C10">Chapter 10</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 11</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 12</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 13</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 14</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 15</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 16</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 17</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 18</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 19</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 20</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 21</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 22</h2>
+  <p>This chapter explains ba bla bla</p>
+
+  <h2>Chapter 23</h2>
+  <p>This chapter explains ba bla bla</p>
+
+</body>
+
+</html>

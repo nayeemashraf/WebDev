@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline, block & inline-block</title>
+</head>
+
+<body>
+    <h1>Inline, block and inline-block elements.</h1>
+    <span>This is an inline element.</span>
+    <!-- Inline elements line-up next to each other. They only take the space needed for the content inside them. Examples of inline elements are <span>,<em>,<strong>,<img>,<a>,<inp>,<label>,<select>, etc -->
+    <span>This is another inline element with an inline element <strong>nested</strong> inside it.
+    </span>
+    <!-- We can nest inline element inside another inline element. -->
+    <p>This is a block element.</p>
+    <!-- Block elements take the whole width in the line like a block and they always start on a new line. Examples of block elements are <h>,<p>,<div>,<ul>,<li>,<form>,<address>,<article>,<table>,<section>, etc. -->
+    <p>Nesting in block elements.</p>
+    <!-- we nest inline elements inside block elements. We shouldn't nest block elements inside inline elements. But we can nest block element inside another block element. -->
+    <div>
+        <span>Changing an inline element to <strong>block element</strong> or a block to inline one. </span>
+    </div><br>
+    <!-- In CSS we can make an 'inline' element a 'block' element or the vice-versa simply by typing the element name and set its display property as 'block' or 'inline'. -->
+    <span>Inline-block element.</span>
+    <!-- We do this by changing the display property of element to inline-block in CSS. It mixes both inline and block element to get the best of both worlds. The elements will still sit next to each other like inline elements do but it will enable us to treat them block elements in terms of margin and padding. So, we can add both margin and padding top and bottom. We use inline-block elements if we want elements to sit next to each other also if we want them to have both margin and padding top/bottom to work correctly.  -->
+</body>
+
+</html>
