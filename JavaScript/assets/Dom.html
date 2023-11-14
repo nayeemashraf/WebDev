@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body {
+            font-size: 1.2rem;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .formStyle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.5rem;
+            padding: 30px;
+            max-width: 50%;
+            margin: 90px auto;
+            background-color: rgba(255, 255, 255, 0.07);
+            cursor: pointer;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        }
+
+        /* This style is applied using classList DOM property */
+        .ulItems {
+            font-size: 1.2rem;
+            background-color: rgba(232, 122, 239, 0.5);
+            border-radius: 10px;
+            border: 1px solid rgba(235, 109, 208, 0.5);
+        }
+
+        .enter {
+            border-radius: 9px;
+            cursor: pointer;
+            min-width: 55px;
+            min-height: 26px;
+        }
+
+        /* Both .dark-mode and .light-mode are applied with the button click */
+        .dark-mode {
+            background-color: rgb(8, 7, 16);
+            color: rgb(255, 248, 248);
+        }
+
+        .light-mode {
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+        }
+
+        .material-symbols-outlined {
+            cursor: pointer;
+        }
+
+        .theme {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: end;
+            width: 100px;
+            padding: 0px 10px;
+            margin: 0px 10px;
+        }
+
+        /* This style is toggled with an onclick event listener on 'li' elements */
+        .strikethrough {
+            text-decoration: line-through;
+        }
+
+        /* These styles are applied on delete button by toggling it*/
+        .delBtn {
+            font-size: .8em;
+            cursor: pointer;
+            color: #f21515;
+            margin: 4px 10px;
+            padding: 3px 5px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme"><span class="material-symbols-outlined set-dark">
+            dark_mode
+        </span>
+        <span class="material-symbols-outlined set-light">
+            light_mode
+        </span>
+    </div>
+    <h1 class="heading">Heading</h1>
+    <form action="#">
+        <h2 class="heading">Registration Form</h2>
+        <h2>Username</h2>
+        <input type="text" name="" id="username" class="text">
+        <h2>Password</h2>
+        <input type="password" name="" id="password" class="number">
+        <br>
+        <br>
+        <label for="inp">Input box</label>
+        <br>
+        <input type="number" name="inp" id="inp">
+        <br>
+        <br>
+        <input type="submit" value="Submit" id="submit" onclick="">
+    </form>
+    <h2 id="h2" class="heading">To-dos</h2>
+    <input type="text" name="" id="" class="userinput" placeholder="Enter the items">
+    <button class="enter">Enter</button>
+    <p type="fr09">Get them done.</p>
+    <p>No excuses.</p>
+    <ul class="unordered list items">
+        <li class="first items">Item one</li>
+        <li class="items">Item two</li>
+        <li class="items">Item three</li>
+        <li class="last items">Item four</li>
+    </ul>
+    <script src="DOM.js"></script>
+</body>
+</html>

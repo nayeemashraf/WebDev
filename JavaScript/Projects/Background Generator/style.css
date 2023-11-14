@@ -1,0 +1,64 @@
+:root {
+    --gradient: linear-gradient(90deg, rgb(238, 99, 82), rgb(221, 131, 47), rgb(211, 151, 21),  rgb(238, 101, 83));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 'Raleway', sans-serif;
+    color: rgba(0, 0, 0, .5);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .5em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.1em;
+    line-height: 1.6;
+    /* default linear-gradient style */
+    background-image: var(--gradient);
+}
+
+h1 {
+    font: 600 3.5em 'Raleway',
+        sans-serif;
+    color: rgba(0, 0, 0, .5);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .5em;
+    width: 100%;
+    margin: 41px 0px;
+}
+
+main {
+    flex-basis: 14.5em;
+}
+h2 {
+    margin: 21px 0px;
+}
+h3 {
+    font: 900 1em 'Raleway', sans-serif;
+    color: rgba(0, 0, 0, .5);
+    text-align: center;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    margin: 17px 0px;
+}
+
+input {
+    cursor: pointer;
+    border: 1px outset;
+    border-radius: 9px;
+    background: transparent;
+}
+
+label {
+    letter-spacing: .1em;
+    font-weight: 600;
+}
