@@ -1,9 +1,3 @@
-let variable; // declares a variable, which gets assigned a value of undefined by default during initialization.
-
-let example = "hi"; // declares a variable, which also gets assigned a value of undefined initially, but when that line of code is actually reached during execution, it gets reassigned to the string "hi".
-
-// Declaring and assigning value to a variable in the same line is called initialization. Example let a = 123;
-
 //💡 Variables
 // Variables are containers that hold reusable data. It is the basic unit of storage in a program.
 // The value stored in a variable can be changed during program execution. JavaScript is a dynamically typed (also called loosely typed) scripting language. That is, in JavaScript variables can receive different data types over time.
@@ -11,6 +5,13 @@ let example = "hi"; // declares a variable, which also gets assigned a value of 
 // In JavaScript, all the variables must be declared before they can be used.
 
 // JavaScript is also known as untyped language. This means, that once a variable is created in JavaScript using the keyword var or let, we can store any type of value in this variable supported by JavaScript.
+
+let variable; // declares a variable, which gets assigned a value of undefined by default during initialization.
+
+let example = "hi"; // declares a variable, which also gets assigned a value of undefined initially, but when that line of code is actually reached during execution, it gets reassigned to the string "hi".
+
+// Declaring and assigning value to a variable in the same line is called initialization. Example let a = 123;
+
 
 //💡 var variable
 // created a variable for storing a number
@@ -56,12 +57,12 @@ console.log(txt);   //🔥 inside the block
 
 // Variables defined with var are hoisted to the top and can be initialized at any time. Meaning: variables declared with var can be used before they are declared.
 person = "John"; // Here we assigned a value to an undeclared variable.
-console.log(person); // we executed/used the variable even when it hasn't been yet declared.
+console.log(person); // We accessed or used the variable even when it hadn't yet been declared.
 var person; // Now, we declared the variable "person".
 //🔥 John
 
 
-// After ES6 (2015), we now have two new variable containers: let and const. Let’s make use of the let variable.
+// After ES6 (2015), we now have two new variable containers: let and const.
 
 //💡 let variable
 let JavaScript;        // undefined datatype example.
@@ -80,39 +81,30 @@ let x = 4;    // Not allowed, because variable 'x' has already been declared.
   y = 55;         // Allowed, We assigned new value to variable 'y' without redeclaring it.
 }
 
-// Redeclaring a variable with let, in another block, is allowed:
+// Variables defined with let are also hoisted to the top of the block, but not initialized. Meaning: Variables defined with let must be Declared before use.
+lol = 'hello World';
+console.log(lol);    // Cannot use before declaration.
+let lol;      //🔥 ReferenceError: Cannot access 'lol' before initialization
+
+//💡 Variables defined with let have Block Scope.
+// Redeclaring a 'let' variable in another scope or in another block is allowed.
+// OR
+// Redeclaring a 'let' variable inside a block will not redeclare the variable outside the block.
 let allowed = 2;   // Allowed
+console.log(allowed);
 
 {
 let allowed = 3;   // Allowed
+console.log(allowed);
 }
 
 {
 let allowed = 4;    // Allowed
+console.log(allowed);
 }
 
-// Variables defined with let are also hoisted to the top of the block, but not initialized. Meaning: Variables defined with let must be Declared before use.
-lol = 'hello World';
-console.log(lol);    // Cannot use before declaration.
-let lol;      //🔥 ReferenceError: Cannot access 'lol' before initialization   
 
-//💡 Variables defined with let have Block Scope.
-
-// Redeclaring a let variable inside a block will not redeclare the variable outside the block.
-let different = "I cannot be altered";
-
-{
-    let different = "I am Independent";
-    console.log(different);
-}
-//🔥 I am Independent           // Output of 'different' inside the block { }.
-
-console.log(different);
-//🔥 I cannot be altered       // Output of 'different' outside the block { }.
-
-
-// Variables declared with let inside a { } block cannot be accessed from outside the block.
-
+// Variables declared with 'let' inside a { } block cannot be accessed from outside the block.
 {
   let x = 2;
 }
@@ -122,19 +114,26 @@ console.log(x);  // x can NOT be used here
 //💡 const variable
 // Const is another variable type assigned to data whose value cannot and will not change throughout the script. It defines a constant reference to a value.
 
+// Variables declared with const cannot be redeclared or reassigned/updated in the same scope.
 const language = 'Java';
-language = 'Python';    // will give Assignment to constant variable error. Because we have changed the value.
+language = 'Python';    // will give Assignment to constant variable error. Because we cannot update/reassign variable 'language' with a new value.
+
+{
+const prohibited = 2;
+const prohibited = 2;   // We cannot redeclare the variable 'prohibited' again. It will throw an error because it has already been declared.
+prohibited = 4;   // NOT Allowed.
+language = 'JavaScript';  // Cannot do this either.
+}
+
 
 //* variables declared with 'const' must be assigned a value when they are declared.
 const invalid;         // Not allowed.
 invalid = "hello"; 
 
-// const variables have block scope. Variables declared with const cannot be redeclared or reassigned/updated in the same scope.
-const prohibited = 2;
-const prohibited = 2;   // We cannot redeclare the variable 'prohibited' again. It will throw an error because it has already been declared.
-prohibited = 4;         // We cannot update/reassign variable 'prohibited' with a new value.
-
-// Redeclaring a variable with 'const' in another scope or in another block is allowed.
+//💡 Variables defined with const have Block scope.
+// Redeclaring a 'const' variable in another scope or in another block is allowed.
+// OR
+// Redeclaring a 'const' variable inside a block will not redeclare the variable outside the block.
 
 const valid = 2;       // Allowed
 {
@@ -144,6 +143,12 @@ const valid = 2;       // Allowed
 {
   const valid = 4;   // Allowed
 }
+
+// Variables declared with 'const' inside a { } block cannot be accessed from outside the block.
+{
+  const z = 9;
+}
+console.log(z);  // z can NOT be used here
 
 // Variables defined with const are hoisted to the top of the block, but not initialized. Meaning: Variables defined with const must be Declared before use.
 alert(message);    // First we should declare the variable before using it.
@@ -166,7 +171,7 @@ cars.push("Audi");
 
 cars = ["Toyota", "Volvo", "Audi"];    //🔥 Error: Assignment to constant variable.
 
-// Constant Objects
+//💡 Constant Objects
 // You can change the properties of a constant object:
 
 // You can create a const object:
