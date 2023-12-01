@@ -5,7 +5,7 @@ let example = "hi"; // declares a variable, which also gets assigned a value of 
 // Declaring and assigning value to a variable in the same line is called initialization. Example let a = 123;
 
 //💡 Variables
-// Variables in JavaScript are containers that hold reusable data. It is the basic unit of storage in a program.
+// Variables are containers that hold reusable data. It is the basic unit of storage in a program.
 // The value stored in a variable can be changed during program execution. JavaScript is a dynamically typed (also called loosely typed) scripting language. That is, in JavaScript variables can receive different data types over time.
 // A variable is only a name given to a memory location, all the operations done on the variable effects that memory location.
 // In JavaScript, all the variables must be declared before they can be used.
