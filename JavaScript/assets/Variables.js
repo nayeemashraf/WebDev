@@ -146,8 +146,8 @@ const valid = 2;       // Allowed
 }
 
 // Variables defined with const are hoisted to the top of the block, but not initialized. Meaning: Variables defined with const must be Declared before use.
-alert(name);    // First we should declare the variable before using it. //⚠️ ignore strike through.
-const name = "String";
+alert(message);    // First we should declare the variable before using it.
+const message = "String";
 
 
 //💡 Constant Arrays
@@ -191,7 +191,7 @@ car = {type:"Volvo", model:"EX60", color:"red"};    //🔥 Error: Assignment to 
 // A new RegExp
 
 //? How a variable works 🤷🏻‍♂️ 
-// When we declare a variable, a memory container is allocated for the variable. A variable name is just a label of that container, which holds the value that we assign to a variable. So, if we reassign/update the variable it’s more likely an entirely new container is created for the new value and at some point the previous value box is cleaned up by the garbage collector, since nothing is using it.
+// When we declare a variable, a memory container is allocated for the variable. A variable name is just a label of that container, which holds the value that we assign to a variable. So, if we reassign/update the variable it's more likely an entirely new container is created for the new value and at some point the previous value box is cleaned up by the garbage collector, since nothing is using it.
 
 //💡 Assignment to another variable
 // We can assign the value of one variable to another variable like this:
