@@ -61,6 +61,7 @@ let g = {
 let h = {
   title: "CEO",
 };
+// This statement would return a false because both the objects refer to two separate addresses in memory. When we compare two objects, we compare their addresses, not their values.
 g === h; //🔥 false
 // If 'g' is an object with 'title' property and 'h' is also another object with the exact same property. Now if we compare them we get false because 'g' and 'h' are reference types and when we compare them, their references are compared in other words 'g' is referencing this object at some location (say 222) whereas 'h' is referencing this object at another location (say 333). So, when we compare 'g' and 'h' it's like comparing 222 with 333 and of course they're different.
 
@@ -108,6 +109,16 @@ function increaseScope(obj) {
 console.log(increaseScope(obj)); //🔥 { value: 11 }
 console.log(obj); //🔥 { value: 11 }
 
+// More on Reference types
+// An object holds a reference/address of a single key-value pair or many key-value pairs. Whenever we refer to an object, we refer to an address in memory which contains the key-value pair. If we assign an object ('object1') to another object ('object2'), we are actually assigning the address of 'object1' to 'object2' instead of the key-value pair which the 'object1' contains in memory.
+
+let object1 = { a: 5, a1: 6 };
+let object2 = object1;
+
+// The above statement assigns the address of object1 to object2, and not the value {a:5, a1:6}. Thus with this assignment 'object1' and 'object2' refer to the same address in memory.
+// When we compare these two objects, we find that both of them refer to the same address in memory.
+object1 === object2; // will return true, as both refer to the same address.
+
 //💡 Why memory allocation is different in value types and reference types?
 
 // The reason is that we use value types for simple values like numbers, strings, Booleans and so on. We don't need much memory for these kind of values. In contrast, we use objects and arrays for storing complex values and we need more memory, that's why in terms of memory allocation we have two different types of memory.
@@ -115,22 +126,3 @@ console.log(obj); //🔥 { value: 11 }
 // 1. Call Stack: Stack as the name implies simply is a stack of data in the memory and this is a type of memory which can be accessed really quick and which is very limited too, it doesn't hold that much information. Primitive values are stored in stack memory which is used for storing simple values or value types.
 
 // 2. Heap memory: This is used for storing larger complex objects. Heap takes a little bit longer to be accessed but therefore it is able to hold much more information it's not as short living as the stack and this type of memory is perfect for bigger amount of data or the data which changes frequently or dynamically. The stack just keeps the reference to the memory position at which the object is stored in the heap.
-
-//💡 More on Reference types (Objects)
-// An object holds a reference/address of a single key-value pair or many key-value pairs. Whenever we refer to an object, we refer to an address in memory which contains the key-value pair. If we assign an object ‘object1’ to another object ‘object2’, we are actually assigning the address of ‘object1’ to ‘object2’ instead of the key-value pair which the ‘object1’ contains in memory. Let’s see below”.
-
-let object1 = { a: 5, a1: 6 };
-let object2 = object1;
-
-// The above statement assigns the address of object1 to object2, and not the value {a:5, a1:6}. Thus with this assignment ‘object1’ and ‘object2’ refer to the same address in memory.
-// When we compare these two objects, we find that both of them refer to the same address in memory.
-object1 === object2; // will return true, as both refer to the same address.
-
-// scenario 2.
-let object3 = { a: 5, a1: 6 };
-
-{
-  let object4 = { a: 5, a1: 6 };
-  object3 === object4;
-}
-// This statement would return a false because both the objects refer to two separate addresses in memory. When we compare two objects, we compare their addresses, not their values.
