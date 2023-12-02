@@ -321,13 +321,20 @@ lightMode.addEventListener("click", function () {
 //💡 Non-Global events
 // Non-global events are specific to individual elements on the web page and are triggered when a user interacts with those elements. Examples include: keydown, keyup, click, dblclick, contextmenu, focus, blur, submit, change input, mouseenter, and mouseleave.
 
-//💡 Passing the functions directly in event listener
+//💡 Passing a reference to the function.
 const fun = () => console.log("so");
 body.addEventListener("click", fun);
 
-// When you use addEventListener to attach an event handler to an element in JavaScript, you pass the function name as the second argument without using parentheses. The reason for not using parentheses in this context is that you want to pass the function reference itself, not the result of calling the function.
+// When you use addEventListener to attach an event handler to an element in JavaScript, you pass the function name as the second argument without using parentheses for the below reasons:
 
-// In the addEventListener function, you provide a callback function that will be executed when the specified event occurs on the target element. By passing the function reference without parentheses, you are telling the browser to use that function as the event handler, rather than invoking it immediately and using the result.
+// 1. The reason for not using parentheses in this context is that you want to pass the function reference itself, not the result of calling the function.
+
+// 2. If you were to call the function directly, it would execute immediately, not waiting for the event to occur.
+
+// 3. Event handling is asynchronous. When you add an event listener, the code after it continues to execute without waiting for the event to occur. If you were to call the function directly, it would interrupt the flow of your code and might not work as expected.
+
+// 4. In the addEventListener function, you provide a callback function that will be executed when the specified event occurs on the target element. By passing the function reference without parentheses, you are telling the browser to use that function as the event handler, rather than invoking it immediately and using the result.
+
 // some scenarios where you pass the function definition without using parentheses:
 // Event Listeners
 // Higher-Order Functions
