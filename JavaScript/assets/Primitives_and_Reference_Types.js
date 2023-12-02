@@ -65,6 +65,20 @@ let h = {
 g === h; //🔥 false
 // If 'g' is an object with 'title' property and 'h' is also another object with the exact same property. Now if we compare them we get false because 'g' and 'h' are reference types and when we compare them, their references are compared in other words 'g' is referencing this object at some location (say 222) whereas 'h' is referencing this object at another location (say 333). So, when we compare 'g' and 'h' it's like comparing 222 with 333 and of course they're different.
 
+// Another Example:
+// When you declare a variable inside a function, it creates a new memory location for that variable. This means that the 'colors' variable inside the function is different from the 'colors' variable outside the function.
+// Even though both arrays contain the same values and have same name, they are still different objects because they reside in different memory locations.
+// Therefore, the comparison 'colors === ar' returns false because the two variables are referring to different objects in memory.
+
+const colors = ["red", "blue", "purple"];
+
+function myTest(ar) {
+  const colors = ["red", "blue", "purple"];
+  console.log(colors === ar);
+}
+
+myTest(colors); //🔥 false;
+
 //💡 3. Reference types are copied by their references when we assign a variable to another variable as its value.
 let i = {
   title: "apple",
