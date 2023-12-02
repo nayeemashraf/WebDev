@@ -1,8 +1,26 @@
-// Operators: Apart from the basic mathematical operations, = and + are used to assign and concatenate values, respectively.
+// JavaScript Arithmetic Operators:
+// + Addition, - Subtraction, * Multiplication, ** Exponentiation, / Division, % [Modulus (Remainder)]
+
+// Arithmetic operators perform arithmetic on numbers (literals or variables).
+let m = 100 + 50;
+let number1 = 10;
+let number2 = 2;
+let o = number1 / number2;
+
+// Operators and Operands
+// The numbers (in an arithmetic operation) are called operands.
+
+// The operation (to be performed between the two operands) is defined by an operator.
+
+// Operand	Operator	Operand
+// 100	    +	        50
+
+// The Assignment Operator (=) assigns a value to a variable.
 // equal = is the assignment operator which is used to assign the value (number, string and boolean etc.) to a variable.
 let rank = 1;
 let language = "Java";
 
+// The + can also be used to add (concatenate) strings.
 // + is used to concatenate the variables or values. When used on strings, the + operator is called the 'concatenation' operator.
 // we can concatenate the number with the string or vice-versa.
 // If you add a number and a string, the result will be a string!
@@ -15,12 +33,10 @@ language = " Java";
 concatenated = language + rank;
 console.log(concatenated);
 
-// - / * these three do the basic arithmetical operation.
-
-// ** is the Exponentiation (x²) operator in javaScript.
-// square of x.
-let a = 2 ** 2;
+// ** is the Exponentiation (x²) operator in JavaScript.
+let a = 2 ** 2; // square of x.
 console.log(a); //🔥 4
+
 // cube of x.
 a = 2 ** 3;
 console.log(a); //🔥 8
@@ -37,16 +53,16 @@ alert(p);
 //💡 We cannot multiply a number by a string or subtract/divide the number with a string.
 //💡 we can only add a number to a string and that concatenates (joins) the two or we can add strings to strings to concatenate them.
 
-// += is the Operator shorthand for updating the value of variable.
+// += Addition Assignment Operator is the shorthand for updating the value of a variable.
 let num = 2;
 num = num + 2; // Here we are saying to 'num' assign new value to yourself i.e., add 2 to your original value.
 //🔥 4         // Now, num's value is 4.
 
-// We can achieve the same with the below shorthand.
-num += 2; // Here += specifies add a value (2) to the current value of num i.e., 4 + 2 which equals to 6.
+// We can achieve the same result with the below shorthand.
+num += 2; // Here += specifies add a value (2) to the current value of num i.e., 4 + 2.
 console.log(num); //🔥 6
 
-// We can do this with all other operators using: -=  *=  /=  **=  %=
+// We can use this with all other operators using: -=  *=  /=  **=  %=
 num *= 2; //🔥 12
 
 //💡 The assignment operator += can also be used to concatenate strings.
@@ -54,19 +70,24 @@ let text = "This is how the ";
 text += "concatenation works.";
 //🔥 How is how the concatenation works.
 
-//💡 Increment ++i and decrement --i variable by 1.
+//💡 ++ Increment
+// Increments the variable by 1.
 let number = 1;
 number++; // works the same way as number = number + 1;
 console.log(number);
 //🔥 2
 
+//💡 -- Decrement
+// Decrements the variable by 1.
 let anotherNum = 4;
 --anotherNum;
 console.log(anotherNum);
 //🔥 3
-// ++ and -- Operators could be placed before and after the variable to increment or decrement it by 1.
-// ++num  When it comes before the variable, we call it “the prefix form”.
-// num++  When it goes after the variable, it is called “the postfix form”.
+
+// ++ and -- Operators could be placed before or after the variable to increment or decrement it by 1.
+// ++num  When it comes before the variable, we call it "the prefix form".
+// num++  When it goes after the variable, it is called "the postfix form".
+
 //💡 The prefix form returns a new value, while the postfix form returns an old value before performing an increment or decrement.
 
 //💡 The postfix increment operator increments the value and returns the value "before" the increment.
@@ -81,7 +102,7 @@ const jj = ++ii;
 console.log(ii, jj);
 //🔥 4  4   // ii = 4 and jj = 4
 
-//⚠️ Increment/decrement could only be applied on number type variables. An error will be prompted if there is an attempt on strings or directly on number. Example: let a = 5++ or let b = 'abc' b++;
+//⚠️ Increment/decrement can only be applied on number type variables. An error will be prompted if there is an attempt on strings or directly on number. Example: let a = 5++ or let b = 'abc' b++;
 
 //💡 % modulus operator
 // % is not percentage operator in JavaScript. It is used to find the remainder of the division between two numbers. It can be helpful in various scenarios, such as checking for even or odd numbers, cycling through a range of values, or determining if a number is divisible by another number. For example, a % b returns the remainder when a is divided by b.
@@ -121,12 +142,15 @@ if (checkDivisible % 4 === 0) {
 /*
 1. a) < used to check whether the value on left side is less than the value on right side of '<'
    b) > used to check whether the value on left side is greater than the value on right side of '>'
+   
 2. a) <= used to check whether the value on left side is less or equal to the value on right side of '<='
    b) >= used to check whether the value on left side is greater or equal to the value on right side of '>='
+
 3. == used to check whether the value on left side is equal to the value on right side. Also known as lose operator.
-3 a). === Same as above but in addition to the value it checks the data type as well. Also known as strict operator.
+  a) === Same as above but in addition to the value it checks the data type as well. Also known as strict operator.
+
 4. != used to check whether the values on the left and right sides are not equal. Also, called as negation operator. If the compared values are equal it returns false else it will return true.
-4 a) !== Same as above but in addition to the value it checks the data type as well.
+  a) !== Same as above but in addition to the value it checks the data type as well.
 */
 //💡 Equality operator (==) attempts to convert both values (that are being compared) to a common type. The Strict equality (===) operator does not perform a type conversion.
 
@@ -158,13 +182,42 @@ let y = 3;
 // !            NOT            !(x == y)
 // It flips the boolean value. If something is true it will make that false and vice-versa.
 
-// !            NOT            !(9 === '9')
-// we can use the strict operator with an expression as well.
+// logical operators can be combined together to build complex conditional statements.
+// Example 1.
+if (loggedIn && !isBanned) {
+  console.log("User is logged in and not banned");
+} else {
+  console.log("User is either not logged in or banned");
+}
+
+// Example 2.
+if (!userAge || isAdult(userAge)) {
+  // This block will execute if either userAge has a falsy value or the isAdult() returns true.
+  // Only checks isAdult() if userAge is not falsy.
+}
+
+// Example 3.
+if (age >= 18 && (isCitizen || hasVisa)) {
+  console.log("Eligible to vote");
+} else {
+  console.log("Not eligible to vote");
+}
+
+// Example 4.
+if (
+  (temperature > 30 && humidity > 90) ||
+  (windSpeed > 50 && visibility < 100)
+) {
+  console.log("Severe weather alert!");
+} else {
+  console.log("No severe weather");
+}
 
 //💡 Conditional (Ternary) Operator.
 // JavaScript also contains a conditional operator that assigns a value to a variable based on some condition. If the first condition evaluates to true it returns first value else it returns the second value.
 // Syntax
-variablename = condition ? execute_me_if_true : execute_me_if_first_is_false;
+// variableName = condition ? execute_me_if_true : execute_me_if_first_is_false;
+
 let voteable = age < 18 ? "Too young" : "Old enough";
 // If the variable age is a value below 18, the value of the variable voteable will be "Too young", otherwise the value of voteable will be "Old enough".
 
@@ -207,6 +260,7 @@ const template = `
 
 console.log(template);
 //* with template literals we don't need to use '+' operator for concatenation instead we use ${placeholder} syntax. This is called string interpolation. whatever is in the curly braces is taken as an expression and is computed before returning the final value. We can place any expression inside the ${} in a template literal string.
+
 // An expression is any valid unit of code that resolves to a value. This can be a variable, a constant, a function call, an arithmetic operation, a logical operation, etc. For example:
 // example 1.
 let num1 = 2;
@@ -222,6 +276,11 @@ let greeting = `Hello, ${username.toUpperCase()}!`; //🔥 Hello, BOB!
 // example 3.
 let today = new Date();
 let date = `Today is ${today.toLocaleDateString()}`; // Today is 12/29/2021
+
+//💡 JavaScript Type Operators
+// Operator	    Description
+// typeof	      Returns the type of a variable
+// instanceof	  Returns true if an object is an instance of an object type
 
 //* Expressions are evaluated similar to B I D M A S principle.
 // The order of operations is:
