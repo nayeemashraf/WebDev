@@ -1,4 +1,3 @@
-// Objects are Non-primitives.
 //💡 In JavaScript, objects are more complex data types and are composed of "key:value pairs". Keys are just labels and their value can be of any datatype like string, number, array, etc. These keys can be variables or functions and are called properties in case of variables and methods in case of functions in the context of an object. Methods are actions that can be performed on objects. It is common practice to declare objects with the const keyword.
 // Syntax:
 const person = {
@@ -238,7 +237,7 @@ console.log(obj);
 //💡 Dynamic assignment
 // It allows us to use expressions, variables, or computed values as keys or values when defining object properties.
 const profile = "John Livingstone";
-const fName = "Jhon";
+const fName = "John";
 const lName = "Livingstone";
 const regionCode = 1205060;
 const birthYear = 1990;
@@ -264,7 +263,7 @@ const dynamicObjAssignment = {
 };
 
 console.log(dynamicObjAssignment);
-//🔥 { John Livingstone: 'public', userID: [2398069500], displayName: ['Jhon Livingstone'], 12k: 'followers', Tweets: ["Having a great time at the museum!"]}
+//🔥 { John Livingstone: 'public', userID: [2398069500], displayName: ['John Livingstone'], 12k: 'followers', Tweets: ["Having a great time at the museum!"]}
 
 // we can use objects for look-ups, like we store things in a directory and whenever we call anything with appropriate input, it returns the desired value. We can use objects instead of switch statements like we used in this example. Suppose if we pass dublin it will return 'Ireland' and so on.
 const lookUp = {
@@ -285,6 +284,7 @@ function myCountry(input) {
 }
 console.log(myCountry("sheffield"));
 
+//💡 Checking the existence of properties and methods.
 // Sometimes it is useful to check if the property of a given object exists or not. We can check this with 'hasOwnProperty' method. Here we did this with the help of a function. The argument passed to the function is passed to the if else condition. If the condition evaluates as true, return its value, else return 'Not Found'. Suppose we passed color as an argument, first this will be passed to the function parameter, then inside it will be evaluated in the if else condition. With the help of hasOwnProperty method, if else will check the argument we passed in the function whether it is present in myObj object or not. If it exists, it will return its value, i.e., 'Sweet Grape'. If not, it will return 'Not Found'.
 const myObj = {
   name: "Forrest",
@@ -304,6 +304,23 @@ console.log(checkObj("color")); //🔥 Sweet Grape
 
 // checking Non-existing property
 console.log(checkObj("weight")); //🔥 Not Found
+
+// We can also use the 'in' operator to check if an object has a property with a given name. It returns true if the property exists in the object or false if it does not.
+const OBJ = {
+  name: "John",
+  age: 30,
+  greet: function () {
+    console.log("Hello");
+  },
+};
+console.log("name" in OBJ);   //🔥 true
+console.log("email" in OBJ);  //🔥 false
+if ("age" in OBJ) console.log("yes");   //🔥 yes
+
+// We can also take advantage of 'typeof' operator to check if a property or method exist in an object.
+console.log(typeof OBJ.greet);  //🔥 function
+console.log(typeof OBJ.email);  //🔥 undefined
+console.log(typeof OBJ.age);    //🔥 number
 
 //💡 Writing Complex object.
 // We know objects can store strings, number, variables, arrays and other objects as well. In this example we have nested our objects within an array. Here we have two objects in myAlbum array. Multiple Objects are separated with a comma.
