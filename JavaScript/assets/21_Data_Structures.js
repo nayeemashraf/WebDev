@@ -170,6 +170,8 @@ const ingredients = [
 restaurant.orderPasta(...ingredients);
 
 //💡 Short Circuiting (&& and ||)
+// Short-circuiting refers to the behavior of logical operators (such as || and &&) where the evaluation of an expression stops as soon as the final result is determined, without needing to evaluate all parts of the expression. This optimization can improve performance and simplify complex logic.
+
 // These operators can be used with ANY data type, return ANY data type, and they do short-circuiting
 
 // || OR operator
