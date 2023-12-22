@@ -175,7 +175,7 @@ restaurant.orderPasta(...ingredients);
 // These operators can be used with ANY data type, return ANY data type, and they do short-circuiting
 
 // || OR operator
-// TLDR; Returns first truthy value or last falsy value.
+// TLDR; Returns first truthy value (operand) or last falsy value (operand).
 // It returns the first truthy value it encounters. If it doesn't find any truthy value, it returns the last value on the right side.
 // As we know OR operator evaluates to true if any of the operand/condition is true. If it encounters the first truthy value, it immediately returns that and doesn't evaluate the second operand/condition. If the first operand/condition is a falsy value, the evaluation continues and if the second operand/condition is a truthy value, it returns that. However, if none of the operand/condition is a truthy value, it will return the last falsy value on the right side.
 console.log(3 || "Jonas"); //🔥 3
@@ -208,7 +208,7 @@ console.log(guests3); //🔥 10
 console.log(guests1); //🔥 10
 
 // && AND operator
-// TLDR; Returns first falsy value or last truthy value.
+// TLDR; Returns first falsy value (operand) or last truthy value (operand).
 // It immediately returns the first falsy value without evaluating the second condition/operand. If it doesn't find any falsy value, it returns the last value on the right side.
 // As we know AND operator evaluates to true if both the operands/conditions are true. If the first operand/condition is false, it doesn't need to evaluate the second operand/condition and immediately returns that falsy value. But if the first operand/condition is a truthy value, the evaluation continues to check the second operand/condition and if that is a falsy value, it returns that falsy value. However, if none of the operand/condition is a falsy value, it returns the last truthy value.
 
