@@ -219,7 +219,7 @@ console.log(typeof converted, converted); //🔥 number 45
 
 //* parseInt function with a radix parameter.
 // The parseInt () method can also be used with a radix. parseInt() takes two arguments, a string and a radix. A radix parameter specifies the number system to use for the numeric string (informs javaScript about the type of number system) before converting into the integer. Such as a number with base 2 would be binary, 8 => octal, 10 => decimal, and 16 => hexadecimal. If the radix is omitted, JavaScript assumes radix 10 by default i.e, decimal number system. If the value begins with '0x', JavaScript assumes radix 16.
-//⚠️ Remember, it doesn't convert the integer into another number system but informs it what number system it belongs.
+//⚠️ Remember, it doesn't convert the integer into another number system but informs it to which number system it belongs.
 
 // In the below example, parseInt method converts the value of hexadecimal number into an integer
 let hex = "7c";
@@ -234,3 +234,32 @@ console.log(withRadix("10011")); //🔥 19
 // For floats, we have parseFloat() method.
 const floats = "01.123";
 console.log(parseFloat(floats)); //🔥 1.123
+
+//💡 Template literals
+// Template Literals use back-ticks (``) rather than the quotes ("") to define a string.
+// With template literals, you can use both single and double quotes inside a string.
+// With literals we can write a string in multiple lines.
+//* with template literals we don't need to use '+' operator for concatenation instead we use ${placeholder} syntax. This is called string interpolation. whatever is in the curly braces is taken as an expression and is computed before returning the final value. We can place any expression inside the ${} in a template literal string.
+const recipient = "James";
+const sender = "John";
+const template = `
+        Hey ${recipient}! 
+        How is it going? 
+        Hey! ${sender} I'm doing pretty well 
+        How about you? 
+        What's been happening on your end?`;
+
+// example 1.
+let num1 = 2;
+let num2 = 4;
+const sum = `The sum of ${num1} and ${num2} is ${num1 + num2}`;
+console.log(sum); //🔥 The sum of 2 and 4 is 6
+
+// example 2.
+let username = "Bob";
+let greeting = `Hello, ${username.toUpperCase()}!`; //🔥 Hello, BOB!
+
+// The value of the expression inside the ${} is converted to a string and inserted into the template literal
+// example 3.
+let today = new Date();
+let date = `Today is ${today.toLocaleDateString()}`; //🔥 Today is 12/29/2021
