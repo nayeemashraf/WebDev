@@ -176,13 +176,40 @@ restaurant.orderPasta(...ingredients);
 
 // || OR operator
 // TLDR; Returns first truthy value (operand) or last falsy value (operand).
-// It returns the first truthy value it encounters. If it doesn't find any truthy value, it returns the last value on the right side.
-// As we know OR operator evaluates to true if any of the operand/condition is true. If it encounters the first truthy value, it immediately returns that and doesn't evaluate the second operand/condition. If the first operand/condition is a falsy value, the evaluation continues and if the second operand/condition is a truthy value, it returns that. However, if none of the operand/condition is a truthy value, it will return the last falsy value on the right side.
+// It returns the first truthy value it encounters. If it doesn't find any truthy value, it returns the last value.
+// If it encounters the first truthy value or Boolean true, it immediately returns that and doesn't evaluate the second operand/value. If the first operand/value is a Boolean false or falsy value, the evaluation continues and if the second operand/value is a Boolean true or truthy value, it returns that. However, if none of the operand/value is a truthy value, it will return the last falsy value.
 console.log(3 || "Jonas"); //🔥 3
 console.log("" || "Jonas"); //🔥 Jonas
 console.log(true || 0); //🔥 true
 console.log(undefined || null); //🔥 null
 console.log(undefined || 0 || "" || "Hello" || 23 || null); //🔥 Hello
+
+// Use Case:
+
+// 1. We may want to call the function conditionally if something is false.
+let some = false;
+const isFalse = function () {
+  console.log("Test is false.");
+};
+
+// Instead of doing this:
+if (!some) {
+  isFalse();
+}
+// We can use short-circuiting to call the function. If the 'some' is true, it will not call the function.
+some || isFalse();
+
+// 2. It can be used is to set a default value for a function parameter.
+function theSameOldFoo(name) {
+  name = name || "Bar";
+  console.log("My best friend's name is " + name);
+}
+
+// If we don't pass an argument, the 'name' parameter will take the value "Bar"
+theSameOldFoo();
+
+// If we pass a truthy argument, the 'name' parameter will take that value.
+theSameOldFoo("Beau");
 
 // Practical example
 // Instead of writing this logic:
@@ -209,13 +236,29 @@ console.log(guests1); //🔥 10
 
 // && AND operator
 // TLDR; Returns first falsy value (operand) or last truthy value (operand).
-// It immediately returns the first falsy value without evaluating the second condition/operand. If it doesn't find any falsy value, it returns the last value on the right side.
-// As we know AND operator evaluates to true if both the operands/conditions are true. If the first operand/condition is false, it doesn't need to evaluate the second operand/condition and immediately returns that falsy value. But if the first operand/condition is a truthy value, the evaluation continues to check the second operand/condition and if that is a falsy value, it returns that falsy value. However, if none of the operand/condition is a falsy value, it returns the last truthy value.
+// It immediately returns the first falsy value without evaluating the second value/operand. If it doesn't find any falsy value, it returns the last value.
+// If the first operand/value is a Boolean false or falsy, it doesn't need to evaluate the second operand/value and immediately returns that falsy value. But if the first operand/value is a Boolean true or truthy value, the evaluation continues to check the second operand/value and if that is a falsy value, it returns that falsy value. However, if none of the operand/value is a falsy value, it returns the last truthy value.
 
 console.log(0 && "Jonas"); //🔥 0
 console.log(-2 && undefined); //🔥 undefined
 console.log(7 && "Jonas"); //🔥 Jonas
 console.log("Hello" && 23 && null && "jonas"); //🔥 null
+
+// Here we can clearly see the && operator doesn't even evaluate the second condition. Since the first condition returned the false, it didn't need to evaluate the second part.
+if (4 > 5 && 5 > 6) {
+  console.log("hi");
+} else {
+  console.log("no");
+}
+
+// Use Case:
+// We can use short-circuiting to call the functions.
+let test = true;
+let isTrue = function () {
+  console.log("Test is true.");
+};
+
+test && isTrue();
 
 // Practical example
 // Instead of writing this logic:
