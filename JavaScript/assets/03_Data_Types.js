@@ -8,9 +8,11 @@ let w; // if we console.log(w) we will get undefined.
 
 // It is also possible to explicitly assign undefined to a variable. Any variable can be emptied, by setting the value to undefined. Example:
 let val = undefined;
+
 // In JavaScript, undefined is treated as false value.
 let s;
 console.log(Boolean(s)); //🔥 false
+
 // In JavaScript, the typeof of an undefined value is also undefined.
 let a;
 console.log(typeof a); //🔥 undefined
@@ -27,19 +29,13 @@ console.log(Boolean(isFalse)); //🔥 false
 const is = null;
 console.log(typeof is); //🔥 object
 
-// When comparing null and undefined with equality operator ==, they are considered equal. For example,
-console.log(s == x); //🔥 true
-// In JavaScript, == compares values by performing type conversion. Since both null and undefined return false, Hence null and undefined are considered equal.
-
-// However, when comparing with strict equality operator ===, the result is false.
-console.log(s === x); //🔥 false
-
 //* 3. Boolean: Represents a logical entity and can have two values: true or false. You can use the Boolean() function to find out if an expression (or a variable) is true or false:
 // example: Boolean(10 > 9) or (10 > 9) or 10 > 9
 
 //💡 JavaScript considers Boolean value true as 1 and false as 0.
 
-//💡 Truthy Values - Everything with a value is boolean true or truthy.
+//💡 Truthy Values - Truthy values are those that convert to true in boolean contexts (like conditional statements or logical operators), but they still retain their distinct types.
+// Everything with a value is boolean true or truthy.
 let wholeNum = 100;
 Boolean(wholeNum); //🔥 true
 
@@ -74,7 +70,8 @@ let tr = true; // an explicit true is a true.
 let st = "hello"; //🔥 true
 let sf = "false"; //🔥 true
 
-//💡 Falsy Values - Everything without a value is boolean false or falsy.
+//💡 Falsy Values - Falsy values are those that convert to false in boolean contexts (like conditional statements or logical operators), but they still retain their distinct types.
+//  Everything without a value is boolean false or falsy.
 // The Boolean value of 0 (with either signs) is false
 let zr = 0;
 zr = -0;
