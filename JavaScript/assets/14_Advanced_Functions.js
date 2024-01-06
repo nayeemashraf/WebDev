@@ -88,10 +88,19 @@ myFun("one", "two", "three", "four", "five", "six");
 // const non_Valid = (x, ...y, ...z) => console.log(x, y, z);
 
 //💡 Closure
+// A closure is a function having access to the parent scope, even after the parent function has closed.
+// OR
+// A closure is the closed-over variable environment of the execution context in which a function was created, even after that execution context is gone.
+// OR
+// Function bundled with its outer scope (lexical environment) is known as a closure.
+// OR
+// A function (parent) ran. The function executed, It's never going to execute again but it's going to remember that there are references to those variables. So, the child scope always has access to the parent scope.
+
 //⚡ We don't explicitly write "Closures" or "Currying" we just need to understand how things work to be able to read the code when it happens implicitly.
-//  In JavaScript, all functions are naturally Closures
-// Inside the first() function we declare a constant 'greet' and return the second() function.
-// The second() function tries to access the 'greet' variable however, it is outside of its scope and the first() function has already completed its execution and won't run again i.e., second() function shouldn't remember the 'greet' but as we know, child functions do have access to variables declared in the parent function. So, it will have a reference to this variable.
+//  In JavaScript, all functions are naturally Closures.
+// A closure is created when we define a function not when a function is executed.
+
+// Defines the first() function and inside the first() function we declare a constant 'greet' and return the second() function which alerts that 'greet'.
 const first = () => {
   const greet = "Hi";
   const second = () => {
@@ -100,28 +109,46 @@ const first = () => {
   return second;
 };
 
-const newFunc = first();
-newFunc();
+// At this line we are assigning the return of the first() function to newFun variable.
+const newFun = first();
 
-// Alternate Explanations:
-// A function (parent) ran. The function executed, It's never going to execute again but it's going to remember that there are references to those variables. So, the child scope always has access to the parent scope.
-// OR
-// A closure is a function having access to the parent scope, even after the parent function has closed.
+// As we can see, the first() returns the second() function. So, newFun gets the second() function as its value which means newFun holds a reference to the second() function. The second() function is not executed at this time.
+// const newFun = () => {
+//  alert(greet);
+// };
+
+// When 'newFun' is invoked, it executes the 'second' function, the second() function tries to access the 'greet' variable, which is outside its scope and also the first() function has already completed its execution and won't run again i.e., second() function shouldn't remember the 'greet' but as we know child scope (function) always has access to the parent scope (function) which implies any variables declared inside the parent scope (function) are accessible in the child scope (function). So, it will have a reference to this 'greet' variable.
+
+newFun(); // it's equivalent to calling the second() function.
+
+// Another example
+// Even if we update the 'name' variable after defining the displayName() function, it still retains that updated value because when a closure forms, it returns the function along with the reference to those variables.
+function makeFunc() {
+  let name = "Mozilla";
+  const displayName = () => console.log(name);
+  name = "Firefox";
+  return displayName;
+}
+
+const myFunc = makeFunc();
+myFunc(); //🔥 Firefox
 
 //💡 Currying
 // Currying is a technique in functional programming where a function with multiple arguments is transformed into a sequence of functions, each taking a single argument. It allows you to create specialized versions of the original function by fixing certain arguments and returning new functions.
 
 // To create a curried function, you can use arrow functions and closures in JavaScript. Here's a basic example:
+// In this example, multiply() is a curried function that takes the first argument 'a' and returns another function that takes the second argument 'b'. When the inner function is invoked with 'b', it multiplies 'a' and 'b'.
 const multiply = (a) => (b) => a * b;
-// In this example, multiply is a curried function that takes the first argument a and returns another function that takes the second argument b. When the inner function is invoked with b, it multiplies a and b.
 
-// Here multiply is directly invoked with both arguments 3 and 4. It returns the result of multiplying 3 and 4, which is 12.
+// Here multiply() is directly invoked with both arguments 3 and 4. It returns the result of multiplying 3 and 4, which is 12.
 console.log(multiply(3)(4)); //🔥 12
 
-// Assigning multiply() with 2 as argument to multiplyBy2 variable.
+// Assigning the result of calling multiple() with 2 as argument to multiplyBy2 variable.
 const multiplyBy2 = multiply(2);
 
-// In the second example, multiplyBy2 is a new function created by invoking multiply with the argument 2. When multiplyBy2 is called with 5, it multiplies 2 and 5, resulting in 10.
+// Now, multiplyBy2 is a new function created by invoking multiply with the argument 2 because assigning multiply(2) to multiplyBy2 returned this function: (b) => a * b;
+
+// When multiplyBy2() is called with 5, it multiplies 2 and 5, resulting in 10.
 console.log(multiplyBy2(5)); //🔥 10
 
 // Assigning the main function to another variable with a specific value is a common pattern used in currying. It allows you to create specialized versions of the original function by fixing certain arguments, resulting in a new function with the remaining arguments.
@@ -138,7 +165,7 @@ console.log(add5(3)); //🔥 8
 // In this example we will find 100 usd in euros.
 const convertCurrency = (exchangeRate) => (amount) => amount * exchangeRate;
 
-const usdToEur = convertCurrency(0.93); // here we invoked the function with 0.93 as the exchange rate and assigned the that usdToEur i.e., exchangeRate has received its argument.
+const usdToEur = convertCurrency(0.93); // here we invoked the function with 0.93 as the exchange rate and assigned the result to usdToEur which also implies exchangeRate has received its argument.
 
 console.log(usdToEur(100)); //🔥 93
 
@@ -154,25 +181,25 @@ function double(x) {
   return x * 2;
 }
 
-// Now we can combine these functions to compose a new function.
+// Now we can combine these (square and double) functions to compose a new function.
+
 // Here 'f1' and 'f2' parameters will receive the first (square) and second (double) function as arguments.
 function compose(f1, f2) {
   // Now it returns another function with 'a' parameter which will be used to receive the argument for the 'square' and 'double' function.
   return function (a) {
-    // It's like writing square(double(arg)); where 'double' will be called with an argument and whatever the result will be the argument to 'square' function square(4) = 16.
     return f1(f2(a));
+    // It's like writing square(double(arg)); where 'double' will be called with an argument and whatever the result will be the argument to 'square' function.
   };
 }
 
-// The arguments are
 // we can call this directly.
 compose(square, double)(2); //🔥 16
 
-// we can assign this to a variable and then call it from that reference.
+// Or we can assign this to a variable and then call it from that reference.
 const squareAndDouble = compose(square, double);
 squareAndDouble(2); //🔥 16
 
-// We can turn the above 'compose' function into an arrow function.
+// We can also use the arrow function syntax to create the 'compose' function.
 const arrowCompose = (f1, f2) => (a) => f1(f2(a));
 
 //⚡ Avoiding Side Effects and Functional Purity.
