@@ -87,6 +87,110 @@ myFun("one", "two", "three", "four", "five", "six");
 // const notValid = (a, ...no, b) => console.log(a, no, b);
 // const non_Valid = (x, ...y, ...z) => console.log(x, y, z);
 
+//💡 First Class Citizens OR First-class Function
+// A programming language is said to have First-class functions when functions in that language are treated like any other variable. For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable.
+// OR
+// If any programming language has the ability to treat functions as values, to pass them as arguments and to return a function from another function then it is said that programming language has First Class Functions and the functions are called as First Class Citizens in that programming language.
+
+// JavaScript treats function as a first-class citizen. This means that functions are simply values and are just another type of object. Since objects are values, functions are values too.
+
+// 1. Assigning a function to a variable: You can assign a function to a variable, just like you would with any other value.
+const foo = () => {
+  console.log("foobar");
+};
+// We assigned the Function in a Variable, then we used that variable to invoke the function
+foo(); // Invoke it using the variable
+
+// assigning the function reference to a variable
+const sayHello = foo;
+sayHello();
+
+// 2. Passing a function as an argument: You can pass a function as an argument to another function.
+//💡 A function that returns a function or takes other functions as arguments is called a higher-order function.
+
+// higher order function example:
+function greet(name, greetingFunction) {
+  greetingFunction(name);
+}
+
+function sayHello(name) {
+  console.log(`Hello, ${name}!`);
+}
+
+// Pass `sayHello` as an argument to `greet` function
+greet("JavaScript", sayHello); //🔥 Hello, JavaScript!
+// We are passing sayHello() function as an argument to the greeting() function, this explains how we are treating the function as a value.
+
+//* The function that is passed in as an argument is called the callback function. They are called so because the callback function will be called or invoked later by the higher-order function.
+
+// another example of passing a function as an argument:
+const message = () => console.log("Hey Jonas");
+btnClose.addEventListener("click", message); // addEventListener is a higher order function
+
+// 3. Returning a function: A function can return another function.
+// In this example, we are returning a function from another function - We can return a function because functions in JavaScript are treated as values.
+// higher order function example:
+function sayHello() {
+  return () => {
+    console.log("Hello!");
+  };
+}
+
+// Or we can store the function in a variable and then return it:
+function sayHello() {
+  const greet = "Hello!";
+  const say = () => {
+    console.log(greet);
+  };
+  return say;
+}
+
+// 4. Stored in data structures: You can store functions in arrays, objects, or other data structures.
+const functionArray = [
+  function (name) {
+    console.log(`Greetings, ${name}!`);
+  },
+  function (name) {
+    console.log(`Salutations, ${name}!`);
+  },
+];
+
+functionArray[0]("Bob"); //🔥 Greetings, Bob!
+
+//💡 Immediately Invoked Function Expressions (IIFE)
+// Sometimes we need a function that is only executed once and then never again. Basically a function that disappears right after it's called once.
+// Well we could simply create a function and then only execute it once. However, we can actually run this function again at some other point in the code if we wanted to. There's nothing stopping us from calling it again later, but this is not what we want to do. We want to actually execute a function immediately and not even having to save it somewhere.
+
+// We simply write the function expression itself, without assigning it to any variable. Wrapping all of this in the parentheses to make it an expression. Now, we can then immediately call it by adding the opening and closing parenthesis at the end as we would do in a normal function call.
+
+(function () {
+  console.log("This will never run again");
+})();
+
+// It will log the string to the console.
+//🔥 This will never run again
+
+// Same would of course also work for an arrow function.
+(() => {
+  console.log("This will never run again");
+})();
+
+// So we have two ways of writing an immediately invoked function expression.
+
+// This pattern (IIFE) is not really a feature of the JavaScript language, It's more of a pattern that some developers came up with and then started to being used by many other developers.
+
+// why was this pattern actually invented?
+// Well, we already know that functions create scopes. For example, the global scope does not have access to any variables that are defined in the scope of any of these functions.
+// Therefore, we say that all data defined within a scope is private. We also say that this data (inside a function) is encapsulated. Data encapsulation and data privacy are extremely important concepts in programming. Often, we need to protect our variables from being accidentally overwritten by other parts of the program or even by external scripts or libraries.
+
+// As we know variables declared with let or const create their own scope inside a block.
+// So, when we create a block and declare a variable say isPrivate in there, then we cannot access it from outside.
+{
+  const isPrivate = 20;
+}
+
+// This is the reason why immediately invoked function expressions are not used anymore in modern JavaScript. Because if all we want is to create a new scope for data privacy, all we need to do is to just create a block like above. There's no need to create a function for creating a new scope. On the other hand, if what you really need is to execute a function just once, then the IIFE - (Immediately Invoked function Expression) pattern is still the way to go even now with modern JavaScript.
+
 //💡 Closure
 // A closure is a function having access to the parent scope, even after the parent function has closed.
 // OR
@@ -96,7 +200,7 @@ myFun("one", "two", "three", "four", "five", "six");
 // OR
 // A function (parent) ran. The function executed, It's never going to execute again but it's going to remember that there are references to those variables. So, the child scope always has access to the parent scope.
 
-//⚡ We don't explicitly write "Closures" or "Currying" we just need to understand how things work to be able to read the code when it happens implicitly.
+//⚠️ We don't explicitly write "Closures" or "Currying" we just need to understand how things work to be able to read the code when it happens implicitly.
 //  In JavaScript, all functions are naturally Closures.
 // A closure is created when we define a function not when a function is executed.
 
