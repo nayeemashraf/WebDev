@@ -3,7 +3,7 @@
 //💡 Value Types include: string, number, Boolean, null, undefined, and symbol.
 
 let z = "apple";
-// When we declare a variable like 'z' and set it to a string "apple" a part of computer's memory is allocated for 'z' variable. Let's imagine the actual address of this location in memory is 111. So, 'z' will be a label or identifier for this memory location, and at this location we have the string value "apple". 
+// When we declare a variable like 'z' and set it to a string "apple" a part of computer's memory is allocated for 'z' variable. Let's imagine the actual address of this location in memory is 111. So, 'z' will be a label or identifier for this memory location, and at this location we have the string value "apple".
 // Or we can say the identifier actually points to the memory address and not to the value itself. So, 'z' is equal to the memory address 111, which holds the string value 'apple'.
 
 //💡 1. Value types are immutable (read-only). which means you cannot mutate them, means you cannot change them. Once you initialize them they're always the same.
@@ -29,16 +29,16 @@ let e = d;
 d === e; //🔥 true // both hold the same value i.e., 'apple'
 
 // Another example
-// we declared 'number' variable and set it to 10, then we passed this 'number' as an argument to increasePrimitive function. So, the parameter of the function gets the value 10 from the global 'number' variable. The Function increments the parameter 'number' by 1 and returns it, but it does not affect the value of the variable 'number' outside of the function. If we console log the number variable, it is still 10. When we passed the number variable as an argument to the function, a copy of its value is copied to the number parameter, that is local in this function. So, this number parameter is separate from the global 'number' variable. The increment operation is applied to this local variable, not the global one.
+// we declared 'number' variable and set this to 10, then we passed this 'number' as an argument to increasePrimitive function. So, the parameter of the function gets the value 10 from the global 'number' variable. The Function increments the parameter 'number' by 1 and returns it, but it does not affect the value of the variable 'number' outside of the function. If we console log the global variable 'number', it is still 10. When we passed the number variable as an argument to the function, a copy of its value is copied to the 'number' parameter, that is local in this function. So, this 'number' parameter is separate from the global 'number' variable. The increment operation is only applied to this local variable, not the global variable.
 
-// There is some Scoping thing involved in this scenario. The local variable and the global variable are two separate entities that have the same name (number) and value (initially), but different scopes. Any changes to the local variable inside the function will not affect the global variable outside the function.
+// There is also some scoping thing involved in this scenario. The local variable and the global variable are two separate entities that have the same name (number) and value (initially), but different scopes. Any changes to the local variable inside the function will not affect the global variable outside the function.
 
 let number = 10;
 function increasePrimitive(number) {
   number++;
   return number;
 }
-console.log(increasePrimitive(number)); //🔥 11
+increasePrimitive(number); //🔥 11
 console.log(number); //🔥  10
 
 //💡 Reference Types include: Object literal, Function, Array and Dates.
@@ -120,7 +120,7 @@ function increaseScope(obj) {
   obj.value++;
   return obj;
 }
-console.log(increaseScope(obj)); //🔥 { value: 11 }
+increaseScope(obj); //🔥 { value: 11 }
 console.log(obj); //🔥 { value: 11 }
 
 // More on Reference types
@@ -132,6 +132,48 @@ let object2 = object1;
 // The above statement assigns the address of object1 to object2, and not the value {a:5, a1:6}. Thus with this assignment 'object1' and 'object2' refer to the same address in memory.
 // When we compare these two objects, we find that both of them refer to the same address in memory.
 object1 === object2; // will return true, as both refer to the same address.
+
+// Another example:
+const flight = "LH234";
+const john = {
+  name: "John Doe",
+  passport: 24739479284,
+};
+
+const checkIn = function (flightNum, passenger) {
+  flightNum = "LH999";
+  passenger.name = "Mr. " + passenger.name;
+
+  if (passenger.passport === 24739479284) {
+    alert("Checked in");
+  } else {
+    alert("Wrong passport!");
+  }
+};
+
+checkIn(flight, john);
+console.log(flight);
+console.log(john);
+
+// After calling the checkIn() function, it alerts 'Checked in', However, console logging the 'flight' variable still shows 'L8234', even though it seems it was redefined inside the function, so it really wasn't. Also, if we check the 'john' object, the 'name' property is changed to 'Mr. John Doe' and that's the change we made inside the function.
+// As we see, the 'flight' variable is a primitive type, a string. As we passed that value into the function, then the 'flightNum' (parameter of the function) is basically a copy of that original value. So, 'flightNum' contains a copy and not simply the original value of the 'flight' variable. So, this would be exactly the same as writing: flightNum = flight; and this would then also simply copy the flight variable's value to flightNum. 'flightNum' inside the function is a completely different variable, and therefore, as we changed it inside, it did not get reflected in the outside 'flight' variable. Therefore, it's still 'LH234'.
+
+// We also passed the 'john' object into the function and in that function it is called 'passenger' and then we changed that 'passenger' object there, and if console log the 'john' object, it is also affected by that change. So, when we pass a reference type to a function, what is copied is really just the reference to the object in the memory heap. That would be exactly like doing this: passenger = john; When we try to copy an object like this, we are only copying the reference to that object in the memory heap. But they both point to the same object in memory and so that's exactly what is also happening here with the 'john' object as we pass it into the function where it is called 'passenger'. As we manipulated the 'passenger' object, it was exactly the same as manipulating the 'john' object.
+
+// In summary, passing a primitive type to a function is really just the same as creating a copy like this outside of the function, so the value is simply copied.
+// flightNum = flight;
+
+// On the other hand, when we pass an object (reference type) to a function, it is really just like copying an object like this, and so whatever we change in a copy will also happen in the original.
+// passenger = john;
+
+//💡 passing by value and passing by reference in functions
+// JavaScript does not have passing by reference, only passing by value, even though it looks like it's passing by reference.
+
+// In other languages like C++ where you can pass a reference to any value instead of the value itself. This works even with primitives, so you could pass a reference to the value say '5' and then any modifications to the reference within the function would alter the original value outside of the function and this is called pass by reference.
+
+// But once again, JavaScript does not have pass-by-reference. It seems confusing because, as we just learned, for objects, we do in fact pass in a reference, the memory address of the object. However, that reference itself is still a value. It's simply a value that contains a memory address.
+
+// So, basically, "we pass a reference to the function, but we do not pass by reference." And this is an important distinction.
 
 //💡 Why memory allocation is different in value types and reference types?
 
