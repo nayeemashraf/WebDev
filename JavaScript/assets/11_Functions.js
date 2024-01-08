@@ -217,34 +217,44 @@ console.log(callMe("Hi")); // Here we are calling the CallMe function with 'Hi' 
 //🔥  Welcome to the hello world
 
 //💡 Anonymous function
-// function expression is an example of an anonymous function. Anonymous functions can also be used as callback functions for example, when using forEach, or an EventListener etc.
+// An anonymous function is a function that is defined without a name. It's often assigned to a variable or passed as an argument to other functions.
+// It's usually defined as an expression using either function expression syntax or arrow function syntax.
+// It can be assigned to variables, passed as arguments, and returned from other functions, offering great flexibility in code organization and execution.
+// Anonymous functions can also be used as callback functions for example, when using forEach, or an EventListener etc.
 
+// 1. Function Expression Syntax:
 const anonymousFunction = function () {
   return "I am an anonymous function";
 };
 anonymousFunction();
 // Note: 'anonymousFunction' is not the name of this function it is just a reference to this function.
 
+// 2. Arrow Function Syntax (Concise Form):
+const myFunction = () => {
+  // function body
+};
+
 //💡 Named Function
-// A named function would look like this:
-// Function declaration is an example of a named function.
+// A "named function," a "regular function," and a "function declaration" essentially refer to the same thing: a function defined using the function keyword with a specific name.
+
+// Function declaration is an example of a named function. 'Example' is the name of this function.
 function example() {
   return "This is a regular or function declaration. I'm an example of Named function. My name is example";
 }
 
-// Here the named function is assigned to a variable. Here 'label' is the name of the function.
+// This is also an example of a named function. Here the named function is assigned to a variable. 'label' is the name of this function.
 const namedFunction = function label(myName) {
   return `My name is ${myName}`;
 };
 
-// Functions stored in variables do not need names. They are always invoked (called) using the variable name. So, you wouldn't see this form of function as often.
-namedFunction("furry");
-//🔥 My name is furry
+//⛔ Functions stored in variables do not need names. They are always invoked (called) using the variable name. So, you wouldn't see this form of function as often.
+namedFunction("furry"); //🔥 My name is furry
 
 // The difference between the above two functions is that the first function is declared with function keyword while the second function is declared using a function expression.
 
 //💡 We can assign a function to a variable because function is just a value assigned to a variable.
 const foo = (param) => param;
+
 // copying the reference of the function foo() into 'copy'
 const copy = foo;
 // The variable 'copy' now references the same function as 'foo'. We can call the function using either foo() or copy(). Both 'foo' and 'copy' refer to the same function, so invoking either of them will execute the function and return the same value.
