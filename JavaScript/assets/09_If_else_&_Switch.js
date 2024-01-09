@@ -168,10 +168,11 @@ switch (expression) {
 // The value of the expression is compared with the values of each case.
 // If there is a match, the associated block of code is executed.
 // If there is no match, the default code block is executed.
-// The value of case can be a variable value, string, number or comparison expression.
-// 'break' keyword is used to break out of the switch statement as soon as it matches the corresponding case without having to look for other cases. If we don't use this it will always throw the last case and run the code for every case below the matched case.
+// The switch expression can be as complex as needed or as simple as just a variable.
+// The value of a case can be a string, number or comparison expression.
+// 'break' keyword is used to break out (stop execution) of the switch statement as soon as it matches the corresponding case without having to look for other cases. If we don't use this it will always throw the last case and run the code for every case below the matched case.
 // 'default' acts as an else statement i.e., if we pass any unmatched value or an invalid value it will throw the default statement.
-// Remember, switch statement uses strict equality i.e., it takes into consideration the type as well as the actual value.
+// Remember, in JavaScript, the switch statement performs the strict comparison, i.e., it uses strict equality (===). It takes into consideration the type as well as the actual value.
 
 let variableCondition = "c";
 switch (variableCondition) {
@@ -235,7 +236,7 @@ function caseInSwitch(val) {
   }
   return answer;
 }
-console.log(caseInSwitch(1));
+caseInSwitch(1);
 
 // Sometimes we can have the same output for the multiple cases. This can be achieved by using multiple cases and placing the break keyword after the last case.
 function operatingSystem(parameter) {
@@ -262,7 +263,7 @@ function operatingSystem(parameter) {
   }
   return OS;
 }
-console.log(operatingSystem("hp"));
+operatingSystem("hp");
 
 // If multiple cases match the switch expression, the first case is executed.
 let result = "a";
@@ -316,7 +317,7 @@ function getTime(para) {
   }
   return greet;
 }
-console.log(getTime(12));
+getTime(12);
 
 // Another Example:
 let percentage;
