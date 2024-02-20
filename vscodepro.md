@@ -2,7 +2,7 @@
 
 ## 👨🏻‍💻 Editor Basic
 
-    💡  Ctrl+S - Always save the current file before closing or running the code with this shortcut.
+    💡  Ctrl+S - Save the current file before closing or running the code.
 
     💡  Ctrl+X OR Shift+Delete - Cut the current line or selection. Press anywhere on the line to cut the entire line.
 
@@ -26,7 +26,7 @@
 
     💡  Ctrl+Shift+Enter - Press anywhere on the current line to insert new line above without breaking the current line.
 
-    💡  Alt+⬆ / ⬇ - Move the current or selected lines up/down.
+    💡  Alt+⬆ or Alt+⬇ - Move the current or selected lines up or down.
 
     💡  Ctrl+Shift+K - Delete the current line or selected lines.
 
@@ -44,23 +44,29 @@
 
     💡  Ctrl+Tab - Switch between open tabs. Switch to a specific tab when multiple tabs are open without having to go through each one.
 
+    💡 Ctrl+Shift+PageUP - Move the current tab to the left.
+
+    💡 Ctrl+Shift+PageDown - Move the current tab to the right.
+
 ## 🧭 Code Navigation
 
-    💡  Home/End - Go to beginning or end of the current line.
+    💡  Home or End - Go to beginning or end of the current line.
 
-    💡  Ctrl+Home/End - Go to beginning or end of a file.
+    💡  Ctrl+Home or Ctrl+End - Go to beginning or end of a file.
 
-    💡  Ctrl+➡ / ⬅ - Move cursor to the end or beginning of the word.
+    💡  Ctrl+➡ or Ctrl+⬅ - Move cursor to the end or beginning of the word.
 
-    💡  PageUP - Scroll up a page, a screen at a time. PageDown Scroll down a page, a screen at a time.
+    💡  PageUP - Scroll up a page, a screen at a time.
+
+    💡  PageDown - Scroll down a page, a screen at a time.
 
     💡  Ctrl+U - Go to the previous cursor position.
 
-    💡  Alt+➡ / ⬅ - Go back-and-forth between the last cursor positions across the files.
+    💡  Alt+➡ or Alt+⬅ - Go back-and-forth between the last cursor positions across the files.
 
     💡  Ctrl+G - Go to a line number.
 
-    💡  Ctrl+⬆ / ⬇ (Hold Ctrl) - Scroll line up/down without moving the cursor.
+    💡  Ctrl+⬆ or Ctrl+⬇ (Hold Ctrl) - Scroll line up or down without moving the cursor.
 
     💡  Ctrl+F - Toggle find and replace for the selected word or text. Press Enter or F3 to cycle through.
         Hit Shift+Enter to cycle through backwards.
@@ -83,17 +89,19 @@
 
     💡  Ctrl+L - Select the current line.
 
-    💡  Shift+➡ / ⬅ - Select text from the right or left side.
+    💡  Shift+➡ or Shift+⬅ - Select text from the right or left side.
 
-    💡  Shift+↑ / ↓ - Select line by line.
+    💡  Shift+↑ or Shift+↓ - Select text line by line.
 
-    💡  Ctrl+Shift+ ➡/⬅ OR Shift+Ctrl+ ➡/⬅ - Select a word on a line from the left or right side.
+    💡  Ctrl+Shift+➡ OR Shift+Ctrl+➡ - Select a word on a line from the right side.
+
+    💡  Ctrl+Shift+⬅ OR Shift+Ctrl+⬅ - Select a word on a line from the left side.
 
     💡  Ctrl+Shift+Home - Select from the current cursor position to the start of the file.
 
     💡  Ctrl+Shift+End - Select from the current cursor position to the end of the file.
 
-    💡  Shift+PageUP/PageDown - Select multiple lines simultaneously (30 lines).
+    💡  Shift+PageUP or Shift+PageDown - Select multiple lines simultaneously upwards or downwards.
 
     💡  Shift+Home - Select from the current cursor position to the beginning of the current line.
 
@@ -109,9 +117,11 @@
     💡  Tab - Indent multiple lines at once. Select the lines of code and hit Tab key. It will indent all of them by one tab. Use Shift+Tab to unindent.
 
     💡 Ctrl+Shift+Alt+Arrow keys - Column box selection.
-    OR place the cursor at the start of the column, hold Shift+Alt and then click on the item where we want to end the selection for that column. For example, we want to select the 'abc' in all these lines, we can use any of the shortcut to achieve that. Note: Before applying the shortcut, placing the cursor at the start of the 'abc' will select them for overwriting, whereas placing it at the end will insert the multi-cursor.
+    OR place the cursor at the start of the column, hold Shift+Alt and then click on the item where we want to end the selection for that column. For example, we want to select the 'abc' in all these lines, we can use any of these shortcuts to achieve that.
 
-    ⚡ Use Ctrl+D or Ctrl+Alt+DownArrow instead of this.
+    ⚡ Use Ctrl+D OR Ctrl+Alt+DownArrow instead of them.
+
+    Note: Ctrl+D will always overwrite, In case of others, placing the cursor at the start of the 'abc' and ending it at the end of 'abc' will select them for overwriting, whereas placing it at the end of 'abc' and ending it at the end of 'abc' will insert the multi-cursor.
 
     💡                          lorem ipsum abc dolor sit
     💡                          lorem ipsum abc dolor sit
@@ -119,7 +129,7 @@
 
 ## 🖲️ Multi-cursor
 
-    💡  Ctrl+Alt+ ↑ / ↓ - Insert cursors above or below the line.
+    💡  Ctrl+Alt+↑ or Ctrl+Alt+↓ - Insert cursors above or below the line.
 
     💡  Hold Alt key and click on the multiple typing areas, it will setup cursors at those positions.
 
@@ -197,19 +207,19 @@
 
     💡  Create Files and Folders in one go by writing the folder and file name after clicking the New File option in the Explorer like this: folder/file.html Or folder/another/file.js
 
-    💡  Most of the Settings or actions can be accessed within Command Palette including VSCode UI changes, Extension settings, File operations, accessing Snippets, etc.
+    💡  Most of the settings or actions can be accessed within Command Palette including VSCode UI changes, Extension settings, File operations, accessing Snippets, etc.
 
-    💡  In the main settings, use @ symbol followed by the desired keyword to filter settings by category. For example, To check which settings you have configured, use @modified filter in the Search bar in the Settings.
+    💡  In the main settings search bar, use @ symbol followed by the desired keyword to filter settings by category. For example, To check the settings you have configured, use @modified filter.
 
-    💡  User modified settings are indicated with a left-border on each section in the main Settings UI.
+    💡  User modified settings are indicated with a left-border on each section in the main settings.
 
-    💡  Perform Calculation within vscode by accessing the 'Evaluate Math Expression' from the Command Palette after entering the expression in the editor. Cursor must be placed after the expression in order for it to work. Example: In this expression 75/2+3, the cursor should be placed immediately after '3' with no space/character before the cursor.
+    💡  Add custom keyboard shortcuts either by adding the additional key bindings or override the default. We can do it from 'Preferences: Open Keyboard Shortcuts' or in 'Preferences: Open Keyboard Shortcuts (JSON)' within the command Palette.
 
     💡  Open projects directly from the terminal by typing 'code' followed by the folder name. Or navigate to the folder first and then type 'code .'
 
-    💡  Drag and drop the terminal into the editor to open it in a separate tab for a better view.
+    💡  Drag and drop the terminal into the editor to open it in a separate tab for a larger view.
 
-    💡  Add custom keyboard shortcuts either by adding the additional key bindings or override the default. We can do it from Preferences: Open Keyboard Shortcuts or in Preferences: Open Keyboard Shortcuts (JSON).
+    💡  Perform Calculation within vscode by accessing the 'Evaluate Math Expression' from the Command Palette after entering the expression in the editor. Cursor must be placed after the expression in order for it to work. Example: In this expression 75/2+3, the cursor should be placed immediately after '3' with no space or any other character before the cursor.
 
 ```
  ⚡ Make All the files in the current directory readonly using this **/* glob pattern in the Readonly Include settings.
