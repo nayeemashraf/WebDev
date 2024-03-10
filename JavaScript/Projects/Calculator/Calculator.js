@@ -1,8 +1,3 @@
-//? Refactor:
-// Allow a total of 30 characters on single line as a display value.
-// Don't use eval function instead use custom logic. This would be having to use previous and current value variables. Check the operator between previous and the current value and based on the operator do the appropriate operation. For example, in this expression: "4+5", previous value is 4, current value is 5 and the operator is '+'. Add previous and current value to get the result.
-// Rounding - how many digits should be taken and displayed after the decimal point.
-
 const display = document.querySelector("#display-result");
 let decimalCount = 0; // Keeps track of decimal points
 
@@ -18,25 +13,12 @@ function handlePercentage(currentValue) {
 
   // if the last operator is either '*' or '/' do if part. Example 6*6*5/55
   if (lastOp === "*" || lastOp === "/") {
-    /* 
-    how we solve Percentage with '*' or '/' operator
-    5*2%                55/2*44/62
-    5*(2/100)           55/2*44/(62/100)
-  */
     // Extracting the number after the last operator. If the string is: '6*6/5*33/55', lastOpIndex is the index value of the last operator then we are adding 1 to it, making the desired index number in order to slice the '55' out of '/55'
     const PercentOf = currentValue.slice(lastOpIndex + 1);
     // Since we need to replace PercentOf with 'PercentOf/100' and there might be cases where the PercentOf is repeated in the string, we know the replace method replaces the first occurrence of the same value. To counter this, we created a regex out the PercentOf by adding '$' quantifier to match the last occurrence of the PercentOf. For example, if the expression is: '5*55/5', without the regex, it will be '(5/100)*55/5', which is incorrect. With regex, it will correctly replace the last '5' with '5/100' making the expression as: '5*55/(5/100)'
     const lastPercentOf = new RegExp(PercentOf + "$");
     currentValue = currentValue.replace(lastPercentOf, `(${PercentOf}/100)`);
   } else if (lastOp === "+" || lastOp === "-") {
-    /*
-    How we solve percentage with '+' or '-' operator - Test expressions:
-        One digits             Two digits          Two digit with negative       Three numbers
-        8+9%                    88+10%               30-7%                         10+10-5+2%
-        8*(9/100)               88*(10/100)          30*(7/100)                    15*(2/100)
-        8*0.09 = 0.72           88*0.1 = 8.8         30*0.07 = 2.1                 15*0.02 = 0.3
-        8+0.72  == '8.72'       88+8.8  == '96.8'    30-2.1 == '27.9'              15+0.3  == '15.3'
-    */
     let PercentOf = lastNumAndOp.slice(1); // Remove the operator from +n
     PercentOf = `(${PercentOf}/100)`; // (n/100)
     const firstPart = currentValue.slice(0, lastOpIndex); // 'n+n-n+nn-n';
