@@ -88,7 +88,7 @@ console.log(make.slice(0, -8)); //🔥 JavaScript String
 // Let's try to extract the first word i.e., 'JavaScript' from the string. We will start from position 0 until the first space. For that we will use make.indexOf(' '), that will return the index of the first instance of the empty space.
 console.log(make.slice(0, make.indexOf(" "))); //🔥 JavaScript
 // Now, let's extract the last word from the string. We added 1 to remove the space from the extracted string.
-console.log(make.slice(make.lastIndexOf(" ") + 1)); //🔥 Method
+console.log(make.slice(make.lastIndexOf(" ") + 1)); //🔥 Methods
 
 // 4. The substring() method extracts a part of a string and returns the extracted parts in a new string. substring() is similar to slice() method. The difference is that start and end values less than 0 are treated as 0 in substring(). In the below example, the first argument is the starting position and second one specifies end position, excluding the character at the position indicated by end value. If the second argument is omitted, the characters from start position through the end are returned.
 // syntax: variablename.substr(parameter1, parameter2);
