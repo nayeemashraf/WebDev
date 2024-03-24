@@ -6,7 +6,7 @@ const exampleArray = ["hello", vary, 3, 2037 - 1991, anotherArray];
 console.log(exampleArray);
 
 //💡 Nested arrays
-let topLanguages = [
+const topLanguages = [
   "Javascript",
   "Python",
   ["Go", "Kotlin", "R"],
@@ -14,21 +14,27 @@ let topLanguages = [
   ["C", ["C++", ["Ruby"], ["Rust"]], "Dart"],
 ];
 
-// We have 5 elements in the topLanguages array. 3rd element is itself an array and has 3 elements. 4th element is also an array with 3 elements, with 3rd element being itself an array with 2 elements. 5th element is also an array with 3 elements and 2nd element being itself an array with 3 elements.
+// We have 5 elements in the 'topLanguages' array. 3rd element is itself an array and has 3 elements. 4th element is also an array with 3 elements, with 3rd element being itself an array with 2 elements. 5th element is also an array with 3 elements where 2nd element is itself an array with 3 elements.
+
+//💡 Accessing elements in a nested array
 // Say we want to access the item "Swift", we can navigate like this:
 
+// In the 'topLanguages' array:
 // "Javascript"            // is at 0 index
 // "Python"                // is at index 1
-// ["Go", "Kotlin", "R"]   // is at 2 index.
-// At index 2, we have another array with 3 elements: "Go" is at index 0, "Kotlin" at index 1, and "R" at index 2 within the index 2.
+// ["Go", "Kotlin", "R"]   // is at index 2 with 3 elements. In this array, "Go" is at index 0, "Kotlin" at index 1, and "R" at index 2.
 
-// ["Java", "C#", ["Swift", "PHP"]]       // is at index 3 with 3 elements, 3rd element being itself an array.
-// first 2 being the elements of index 3: "Java" is at index 0, "C#" at index 1 within index 3.
-// At index 2 is the 3rd element that is itself an array with 2 elements: "Swift" at index 0 and "PHP" at index 1 within the index 3.
+// ["Java", "C#", ["Swift", "PHP"]]    // is at index 3 with 3 elements, 3rd element being itself an array. In this array, "Java" is at index 0, "C#" at index 1. At index 2, the 3rd element is itself an array with 2 elements: "Swift" at index 0 and "PHP" at index 1.
 
-// We can use the above method to navigate to "Swift". We know "Swift" is in index 3 and within this it is in the 2nd element at the index 0.
+// First, we know "Swift" is inside another array.
+// This array is the fourth element in the main array because array elemet counting starts from 0.
+// Inside this array, "Swift" is within another array.
+// This inner array is the second element within the fourth element of the main array.
+// Finally, "Swift" is the first item in this inner array.
+// So, to access "Swift", we navigate through the main array like this: fourth element index > second element index > first element index.
 console.log(topLanguages[3][2][0]);
-// similarly to access "C++". At index 4 it is in index 1 and within that it is at index 0.
+
+// Similarly, to access "C++". At index 4 it is in index 1 and within that it is at index 0.
 console.log(topLanguages[4][1][0]);
 
 // In JavaScript, arrays are a type of object that can contain various elements, including other arrays and objects. Functions can also be placed inside an array.
@@ -49,29 +55,30 @@ let array = [
 // We can access/invoke a function with the following syntax:
 // arrayName[indexNumber]()
 array[4]();
-// 'drive'      // when we access the function with this method, we are invoking/calling a function for its execution like we do with normal function call.
+//🔥 'drive'
+// when we access the function with this method, we are invoking/calling a function for its execution like we do with normal function call.
 
 // If we access this without the () parentheses, it will only return the function definition.
 array[4];
-// ƒ () {
-//     return "drive";
-//   }
+//🔥 ƒ () {
+//🔥     return "drive";
+//🔥   }
 
-// We can use mathematical expressions in an array [] bracket. So, whatever is inside of these brackets will be executed/evaluated and will return the array element at the index corresponding to the returned number.
+// We can use mathematical expressions in an array [] bracket. So, whatever is inside of these brackets will be executed/evaluated and will return the array element at that index, corresponding to the returned number.
 array[1 + 1 - 2]; // It's like writing array[0]
-// ("string");      // element at index 0 is returned
+//🔥 "string"      // element at index 0 is returned
 
-array[1 + 1 - 0]; // equals to 2
-// [("embed", 200)];
+array[1 + 1 - 0]; // same as array[2]
+//🔥 ["embed", 200]
 
 // We can access array elements dynamically with the use of mathematical expressions and variables.
 let a = 2;
 array[a + 3 - 2]; // equals to 3, i.e, array[3]
-// {
-//   car: "ford";
-// }                // result
+//🔥 {
+//🔥   car: "ford";
+//🔥 }
 
-//💡 Accessing Objects and their property values inside of an Array.
+//💡 Accessing Objects and their property values inside an Array.
 // We can embed objects inside of objects, arrays can contain objects and objects can contain arrays.
 
 const myAlbum = [
