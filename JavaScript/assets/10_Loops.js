@@ -54,7 +54,7 @@ for (let i = 0; i < theArray.length; i++) {
 // Remember we initialize 'i' to 0 because most of the time we iterate through an array and we know javaScript use zero-based indexing so, the first element will be at index 0. i++ is the increment operator, this will add 1 to itself after the execution of loop body and before the next iteration.
 
 // Replicating the same thing we achieved with the above 'while loop' using a 'for loop'.
-//  We are looping through till 'i' is less than 5
+// We are looping through till 'i' is less than 5
 
 let ourArray = [];
 // START AT 0, END AT 4, add 1
@@ -63,7 +63,7 @@ for (i = 0; i < 5; i++) {
 }
 console.log(ourArray);
 
-// break-down of iterations:
+// break-down of the iterations:
 // 1. First 'i' is initialized with 0. Now, It checks whether 'i' is less than 5 or not, which is true. Then it will save it to 'ourArray'. Then it will add 1 to that 0 which equals to 1.
 // 2. Is 1 less than 5? YES, Save 1 to ourArray. Add 1 to 1 = 2.
 // 3. Is 2 < 5? YES, Save it to ourArray. Add 1 + 2 = 3.
@@ -119,7 +119,7 @@ do {
   p--;
 } while (p > 0);
 
-// Profile Lookup with for loop.
+// Profile Lookup example with for...loop.
 // We have an array of objects with a contact list, where each object is one of the contact. We want to get the value of any property with the given property name. This will be accomplished using the lookUpProfile function.
 // The function takes in two parameters, name and prop. It uses a for loop to iterate through the contacts array to find the firstName property of each object. It checks whether argument passed to the name parameter matches the firstName property. If it does, it returns the value of prop, (the property passed as an argument) if it exists or "No such property" if it doesn't. If no match is found, (it means neither the name is equal to firstName nor the prop (property) is present), it returns "No such contact".
 
@@ -149,6 +149,7 @@ const contacts = [
     likes: ["JavaScript", "Gaming", "Blogging"],
   },
 ];
+
 function lookUpProfile(name, prop) {
   for (i = 0; i < contacts.length; i++) {
     if (contacts[i].firstName === name) {
@@ -157,13 +158,14 @@ function lookUpProfile(name, prop) {
   }
   return "No such contact";
 }
+
 let isAvailable = lookUpProfile("Alyse", "likes");
 console.log(isAvailable);
 
 console.log(lookUpProfile("Luis", "age")); // Finding a non-existing property in the contact(object).
 console.log(lookUpProfile("Mario", "likes")); // Finding a non-existing contact(object).
 
-//💡 we have two more loops in javascript i.e, for-in and for-of. We use them to iterate over the properties of an object or elements in an array.
+//💡 we have two more loops in javascript i.e, for...in and for...of. We use them to iterate over the properties of an object or elements in an array.
 
 //💡 for...in loop
 // A for...in loop loops over enumerable properties of an object.
@@ -172,7 +174,7 @@ const person = {
   name: "Jhon",
   age: 30,
 };
-// The JavaScript for in statement loops through the properties of an Object:
+// The JavaScript for...in statement loops through the properties of an Object:
 // syntax
 for (variable in object) {
   statement;
@@ -251,13 +253,15 @@ for (i = 0; i < 20; i++) {
 // continue keyword isn't used that often.
 
 //💡 nested loops
+//💡 In a nested loop, on the each iteration of the outer loop, the inner loop will complete all of its iterations. This behavior holds true for all loop types and most common programming languages in a normal scenario.
+
+// Outer loop runs 3 times. For each iteration of outer loop, inner loop runs 3 times
 for (let exercise = 1; exercise < 4; exercise++) {
   console.log(`------ Starting Exercise ${exercise}`);
   for (let i = 1; i < 4; i++) {
     console.log(`Exercise ${exercise}: Lifting Weight ${i} 🏋🏻‍♀️`);
   }
 }
-// Outer loop runs 3 times. For each iteration of outer loop, inner loop runs 3 times
 
 const arr = [
   [1, 2],
@@ -265,12 +269,12 @@ const arr = [
   [5, 6],
 ];
 
+// i runs 3 times. On every iteration of i, j runs 2 times making it a total of 6 iterations
 for (let i = 0; i < arr.length; i++) {
   for (let j = 0; j < arr[i].length; j++) {
     console.log(arr[i][j]);
   }
 }
-// i runs 3 times. On every iteration of i, j runs 2 times making it a total of 6 iterations
 
 //* exercise logging star pattern to the console with the help of nested loop.
 function showStars(rows) {
@@ -316,7 +320,7 @@ function sortFruit() {
       orangeShelf += "🍊";
     }
   }
-  // To return multiple values from a function, we can use an array or an object.
+  // To return multiple values from a function, we can return it as an array or an object.
   return [appleShelf, orangeShelf];
 }
 // destructuring the returned array from sortFruit() function into two variables.
@@ -336,23 +340,24 @@ let array = ["One", 2, "Three", 4];
 array.forEach(function (element, index, array) {
   console.log(element, index, array);
 });
+
 //💡 We don't provide the argument explicitly to the callback function rather it happens implicitly. That is on each iteration the current element from array is provided as an argument to the function.
-// We can define a function and pass that as a callback in the forEach loop.
+
+// We can define an anonymous function and pass that as a callback into the forEach loop.
 const loopEach = function (el, i) {
   console.log(el, i);
 };
 // passing the loopEach function in the forEach loop.
-todos.forEach(loopEach);
+array.forEach(loopEach);
 
-//⛔ we can't use a break/continue statement or return with forEach loop.
+//⛔ We cannot use 'break' or 'continue' statement in a forEach...loop.
 
-//⛔ We cannot use 'return' statement directly inside the loops
-// In JavaScript, the return statement can only be used within the body of a function, not within a loop or any other control flow structure.
+//⛔ We cannot use 'return' statement directly inside the loops. In JavaScript, the return statement can only be used within the body of a function, not within a loop or any other control flow structure. This implies we can use it inside the forEach loop, which passes the callback function for each element.
 for (i = 0; i < 10; i++) {
   if (i == 5) {
     return i;
   }
-  i++; // This is invalid because the return keyword is used inside a loop.
+  i++;
 }
 //🔥 Illegal return statement
 
@@ -365,42 +370,39 @@ for (i = 0; i < ages.length; i++) {
     result = ages[i];
     break; // Exit the loop
   }
-  // Additional loop operations if needed
 }
 console.log(result); //🔥 18
-//                                            OR
+
+// OR
 // you can achieve this by encapsulating the loop inside a function and using a return statement to return the desired value.
 function findValue() {
   for (i = 0; i < ages.length; i++) {
     if (ages[i] === 80) {
       return ages[i];
     }
-    // Additional loop operations if needed
   }
 }
 
 let any = findValue();
 console.log(any); //🔥 80
 
-//💡 most commonly used loop types:
-// for loop
-// for..of
+//💡 Most commonly used loop types:
+// for...loop
+// for...of
 // forEach
 // for...in
 
-//💡 Use a for...of loop when:
-
+//💡 Use for...of loop when:
 // You only need to iterate over the values of an array or iterable object.
 // Accessing the index is not required.
 // You want the ability to terminate the loop early using the break statement.
 // You need to return a value from the loop.
 
 //💡 Use forEach loop when:
-
 // You need to iterate over the elements of an array and perform side effects, such as updating UI elements, logging, etc.
 // Accessing both the value and index of each element is required.
 // You want to ensure that all elements of the array are processed.
 
-//💡 Arrays and Strings are iterable. We iterate over a collection of items in an array or string. We can use for...in loop with arrays because arrays are object type. However, we shouldn't use it unless required.
+//⚡ Arrays and Strings are iterable. We iterate over a collection of items in an array or string. We can use for...in loop with arrays because arrays are object type. However, we shouldn't use it unless required.
 
-//💡 Objects are enumerable. We enumerate over Key-value pairs in Objects. The object properties are enumerable. We can't use for...of loop directly on objects because for...of loop only works with iterables.
+//⚡ Objects are enumerable. We enumerate over Key-value pairs in Objects. The object properties are enumerable. We can't use for...of loop directly on objects because for...of loop only works with iterables.
