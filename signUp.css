@@ -1,0 +1,123 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 100%;
+}
+
+section {
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+form {
+    font-size: 25px;
+    overflow: auto;
+    text-align: center;
+    color: white;
+    padding: 30px;
+    border-radius: 25px;
+    background: hsl(248.57deg 8.43% 16.27%);
+    width: 35vw;
+    min-height: 80vh;
+    display: grid;
+}
+
+label {
+    justify-self: start;
+    align-self: end;
+    padding: 0 11px;
+    padding-bottom: 3px;
+}
+
+#email::after,
+#password::after {
+    content: '*';
+    color: red;
+    padding: 0 5px;
+    font-size: 16px;
+}
+
+
+.input {
+    border-radius: 30px;
+    padding: 15px;
+    width: 100%;
+    height: 45px;
+    font-size: 18px;
+}
+
+#text-area {
+    height: 55px;
+}
+
+input[type="submit"] {
+    background-color: hsl(339.25deg 86.29% 48.63%);
+    border-radius: 30px;
+    font-size: inherit;
+    margin-top: 30px;
+    cursor: pointer;
+    min-width: 30%;
+    justify-self: center;
+    padding: 10px;
+    color: inherit;
+    height: 55px;
+}
+
+#submit:hover {
+    background-color: #e7115be3;
+}
+
+.input:focus {
+    outline: none;
+    background-color: #fff;
+}
+
+.invalidInput {
+    margin: 6px 0;
+    padding: 8px;
+    font-family: 'system ui, monospace';
+    font-size: 19px;
+    text-align: start;
+    color: #ff3c3c;
+}
+
+#passwordRequirements {
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    border: 1px dashed rgb(255, 204, 0);
+    background-color: rgba(235, 228, 26, 0.489);
+    width: 100%;
+    margin: 6px auto;
+    padding: 8px;
+    display: none;
+
+    .popup {
+        color: #05009c;
+        padding: 7px 0;
+        line-height: 27px;
+        text-align: start;
+
+        .req::before {
+            content: '*';
+            color: blue;
+            padding-right: 8px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    form {
+        height: 90vh;
+        width: 80vw;
+    }
+}
